@@ -8,15 +8,15 @@
        sys.puts(str);
        
        
- bold
- italic
- underline
- yellow
- cyan
- white
- green
- red
- grey
+-bold
+-italic
+-underline
+-yellow
+-cyan
+-white
+-green
+-red
+-grey
 
 
        
