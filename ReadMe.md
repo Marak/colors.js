@@ -1,4 +1,4 @@
-<h1>colors.js - get color and style in your nodejs console like what</h1>
+<h1>colors.js - get color and style in your node.js console like what</h1>
 
 <img src="http://i.imgur.com/goJdO.png" border = "0"/>
 
