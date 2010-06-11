@@ -8,7 +8,7 @@
        sys.puts('So '.italic + 'are'.underline + ' styles! '.bold + 'inverse'.inverse); // styles not widely supported
        sys.puts('Chains are also cool.'.bold.italic.underline.red); // styles not widely supported
 
-<img src="http://imgur.com/lZw1L.png" border = "0"/>
+<img src="http://i.imgur.com/goJdO.png" border = "0"/>
        
 <h2>colors and styles!</h2>
 - bold
