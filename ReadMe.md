@@ -25,4 +25,4 @@
 
 ### Authors 
 
-#### cloudhead (Alexis Sellier), Marak
+#### Alexis Sellier (cloudhead) , Marak Squires
