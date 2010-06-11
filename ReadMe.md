@@ -8,5 +8,16 @@
        sys.puts(str);
        
        
+ bold
+ italic
+ underline
+ yellow
+ cyan
+ white
+ green
+ red
+ grey
+
+
        
 optional NPM install : npm install colors
