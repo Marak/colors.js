@@ -2,10 +2,10 @@
 
        var sys = require('sys');
        var colors = require('colors');
-       sys.puts('whats up dog'.green);
-       sys.puts('i cant allow you to do that dave'.italic.grey.underline + 'ill beat you with the chain'.bold.red);
-       var str = "I".green + " Like".yellow + " Colors!".grey;
-       sys.puts(str);
+
+       sys.puts('Colors '.green + 'are '.magenta + 'fun!'.blue);
+       sys.puts('So '.bold + 'are'.underline + ' styles!'.italic); // styles don't work in standard Mac OS Terminal.app
+       sys.puts('Chains are also cool.'.bold.underline.red); // styles dont't work in standard Mac OS Terminal.app
 
 
 <h2>colors and styles!</h2>
