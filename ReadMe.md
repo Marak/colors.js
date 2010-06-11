@@ -12,12 +12,17 @@
 - bold
 - italic
 - underline
+- inverse
 - yellow
 - cyan
 - white
+- magenta
 - green
 - red
 - grey
+- blue
 
-       
-optional NPM install : npm install colors
+
+### Authors 
+
+## cloudhead (Alexis Sellier), Marak
