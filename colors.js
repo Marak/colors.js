@@ -1,4 +1,4 @@
-['bold', 'grey', 'yellow', 'red', 'green', 'white', 'cyan'].forEach(function (style) {
+['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
     Object.defineProperty(String.prototype, style, {
         get: function () {
             return stylize(this, style);
@@ -17,6 +17,9 @@ function stylize(str, style) {
         'green'     : [32, 39],
         'red'       : [31, 39],
         'grey'      : [90, 39],
+        'blue'      : [34, 39],
+        'magenta'   : [35, 39],
+        'inverse'   : [7, 27]
     };
     return '\033[' + styles[style][0] + 'm' + str +
            '\033[' + styles[style][1] + 'm';
