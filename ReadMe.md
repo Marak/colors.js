@@ -6,12 +6,8 @@
        var colors = require('./colors');
 
        sys.puts('hello'.green); // outputs green text
-
-       // from the example.js file
-       sys.puts('C'.yellow+'o'.red+'l'.grey+'o'.cyan+'r'.magenta+'s'.magenta+' are '.green + 'fun!'.yellow);
-       sys.puts('C'.yellow+'o'.red+'l'.grey+'o'.cyan+'r'.magenta+'s'.magenta+' are '.green + 'fun!'.yellow);
-       sys.puts('So '.italic + 'are'.underline + ' styles! '.bold + 'inverse'.inverse); // styles not widely supported
-       sys.puts('Chains are also cool.'.bold.italic.underline.red); // styles not widely supported
+       sys.puts('i like cake and pies'.underline.red)j // outputs red underlined text
+       sys.puts('inverse the color'.inverse);
        
 <h2>colors and styles!</h2>
 - bold
