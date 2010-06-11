@@ -23,6 +23,5 @@
 - blue
 
 
-### Authors 
-
-## cloudhead (Alexis Sellier), Marak
+## Authors 
+#### cloudhead (Alexis Sellier), Marak
