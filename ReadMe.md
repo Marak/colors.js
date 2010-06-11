@@ -7,17 +7,15 @@
        var str = "I".green + " Like".yellow + " Colors!".grey;
        sys.puts(str);
        
-       
--bold
--italic
--underline
--yellow
--cyan
--white
--green
--red
--grey
-
+- bold
+- italic
+- underline
+- yellow
+- cyan
+- white
+- green
+- red
+- grey
 
        
 optional NPM install : npm install colors
