@@ -6,8 +6,8 @@
        var colors = require('./colors');
 
        sys.puts('hello'.green); // outputs green text
-       sys.puts('i like cake and pies'.underline.red)j // outputs red underlined text
-       sys.puts('inverse the color'.inverse);
+       sys.puts('i like cake and pies'.underline.red) // outputs red underlined text
+       sys.puts('inverse the color'.inverse); // inverses the color
        
 <h2>colors and styles!</h2>
 - bold
