@@ -1,3 +1,5 @@
+// colors.js - Alexis Sellier (cloudhead) , Marak Squires
+// MIT yo. copy pasta us some credit plz
 ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
     Object.defineProperty(String.prototype, style, {
         get: function () {
