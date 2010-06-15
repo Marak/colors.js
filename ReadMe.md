@@ -26,4 +26,4 @@
 
 ### Authors 
 
-#### Alexis Sellier (cloudhead) , Marak Squires
+#### Alexis Sellier (cloudhead) , Marak Squires 
