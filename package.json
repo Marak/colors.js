@@ -1,7 +1,7 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console like what",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "Marak Squires",
     "repository": {
         "type": "git",
@@ -10,7 +10,5 @@
     "engine": [
         "node >=0.1.90" 
     ],
-    "main": "colors" ,
-	"licenses": [{ "type": "MIT" }]
-    "contributers": ["Alexis Sellier", "Justin Campbell"]
+    "main": "colors"
 }

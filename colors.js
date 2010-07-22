@@ -23,49 +23,53 @@ THE SOFTWARE.
 
 */
 
+// prototypes the string object to have additional method calls that add terminal colors
 ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
-    Object.defineProperty(String.prototype, style, {
-        get: function () {
-            return stylize(this, style);
-        }
-    });
+  Object.defineProperty(String.prototype, style, {
+    get: function () {
+      return stylize(this, style);
+    }
+  });
 });
 
+// prototypes string with method "rainbow"
+// rainbow will apply a the color spectrum to a string, changing colors every letter
 Object.defineProperty(String.prototype, 'rainbow', {
-	get: function () {
-		var rainbowcolors = ['red','yellow','green','blue','magenta']; //RoY G BiV
-		var exploded = this.split("");
-		var i=0;
-		exploded = exploded.map(function(letter) {
-			if (letter==" ") {
-				return letter;
-			} else {
-				return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
-			}
-		});
-		return exploded.join("");
-	}
+  get: function () {
+    var rainbowcolors = ['red','yellow','green','blue','magenta']; //RoY G BiV
+    var exploded = this.split("");
+    var i=0;
+    exploded = exploded.map(function(letter) {
+      if (letter==" ") {
+        return letter;
+      } 
+      else {
+        return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
+      }
+    });
+    return exploded.join("");
+  }
 });
 
 function stylize(str, style) {
-    var styles = {
-		//styles
-		'bold'      : [1,  22],
-        'italic'    : [3,  23],
-        'underline' : [4,  24],
-		'inverse'   : [7,  27],
-		//grayscale
-        'white'     : [37, 39],
-        'grey'      : [90, 39],
-        'black'     : [90, 39],
-		//colors
-		'blue'      : [34, 39],
-        'cyan'      : [36, 39],
-        'green'     : [32, 39],
-        'magenta'   : [35, 39],
-        'red'       : [31, 39],
-        'yellow'    : [33, 39]
-    };
-    return '\033[' + styles[style][0] + 'm' + str +
-           '\033[' + styles[style][1] + 'm';
+  var styles = {
+  //styles
+  'bold'      : [1,  22],
+  'italic'    : [3,  23],
+  'underline' : [4,  24],
+  'inverse'   : [7,  27],
+  //grayscale
+  'white'     : [37, 39],
+  'grey'      : [90, 39],
+  'black'     : [90, 39],
+  //colors
+  'blue'      : [34, 39],
+  'cyan'      : [36, 39],
+  'green'     : [32, 39],
+  'magenta'   : [35, 39],
+  'red'       : [31, 39],
+  'yellow'    : [33, 39]
+  };
+  return '\033[' + styles[style][0] + 'm' + str +
+         '\033[' + styles[style][1] + 'm';
 };
