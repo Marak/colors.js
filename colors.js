@@ -23,8 +23,6 @@ THE SOFTWARE.
 
 */
 
-var sys = require('sys');
-
 ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
     Object.defineProperty(String.prototype, style, {
         get: function () {
