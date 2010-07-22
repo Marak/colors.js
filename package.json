@@ -10,5 +10,7 @@
     "engine": [
         "node >=0.1.90" 
     ],
-    "main": "colors" 
+    "main": "colors" ,
+	"licenses": [{ "type": "MIT" }]
+    "contributers": ["Alexis Sellier", "Justin Campbell"]
 }
