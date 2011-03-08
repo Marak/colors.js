@@ -1,5 +1,5 @@
 /*
-colors.js 
+colors.js
 
 Copyright (c) 2010 Alexis Sellier (cloudhead) , Marak Squires
 
@@ -24,10 +24,12 @@ THE SOFTWARE.
 */
 
 // prototypes the string object to have additional method calls that add terminal colors
+var isHeadless = (typeof module !== 'undefined');
 ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
   Object.defineProperty(String.prototype, style, {
     get: function () {
-      return stylize(this, style);
+      // default to 'this' for those running console.log() from a browser
+      return isHeadless ? stylize(this, style) : this;
     }
   });
 });
@@ -36,13 +38,16 @@ THE SOFTWARE.
 // rainbow will apply a the color spectrum to a string, changing colors every letter
 Object.defineProperty(String.prototype, 'rainbow', {
   get: function () {
+    if (!isHeadless) {
+      return this;
+    }
     var rainbowcolors = ['red','yellow','green','blue','magenta']; //RoY G BiV
     var exploded = this.split("");
     var i=0;
     exploded = exploded.map(function(letter) {
       if (letter==" ") {
         return letter;
-      } 
+      }
       else {
         return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
       }
