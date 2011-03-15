@@ -27,4 +27,4 @@
 
 ### Authors 
 
-#### Alexis Sellier (cloudhead) , Marak Squires , Justin Campbell
+#### Alexis Sellier (cloudhead) , Marak Squires , Justin Campbell, Dustin Diaz (@ded)
