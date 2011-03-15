@@ -1,14 +1,14 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console like what",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "author": "Marak Squires",
     "repository": {
         "type": "git",
-        "url": "http://github.com/Marak/colors.js.git" 
+        "url": "http://github.com/Marak/colors.js.git"
     },
     "engine": [
-        "node >=0.1.90" 
+        "node >=0.1.90"
     ],
-    "main": "colors"
+    "main": "colors.js"
 }
