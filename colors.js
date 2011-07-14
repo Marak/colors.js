@@ -24,13 +24,21 @@ THE SOFTWARE.
 */
 
 // prototypes the string object to have additional method calls that add terminal colors
+
+var addProperty = function (color, func) {
+  exports[color] = function(str) {
+    return func.apply(str);
+  };
+  String.prototype.__defineGetter__(color, func);
+}
+
 var isHeadless = (typeof module !== 'undefined');
 ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
   // http://robertnyman.com/javascript/javascript-getters-setters.html
   // Object.defineProperty only works in Chrome
-  String.prototype.__defineGetter__(style, function () {
+  addProperty(style, function () {
     return isHeadless ?
              stylize(this, style) : // for those running in node (headless environments)
              this.replace(/( )/, '$1'); // and for those running in browsers:
@@ -40,7 +48,7 @@ var isHeadless = (typeof module !== 'undefined');
 
 // prototypes string with method "rainbow"
 // rainbow will apply a the color spectrum to a string, changing colors every letter
-String.prototype.__defineGetter__('rainbow', function () {
+addProperty('rainbow', function () {
   if (!isHeadless) {
     return this.replace(/( )/, '$1');
   }
@@ -82,7 +90,7 @@ function stylize(str, style) {
 };
 
 // don't summon zalgo
-String.prototype.__defineGetter__('zalgo', function () {
+addProperty('zalgo', function () {
   return zalgo(this);
 });
 
