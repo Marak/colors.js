@@ -35,7 +35,7 @@ var addProperty = function (color, func) {
 }
 
 var isHeadless = (typeof module !== 'undefined');
-['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
+['bold', 'underline', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
   // http://robertnyman.com/javascript/javascript-getters-setters.html
@@ -79,7 +79,7 @@ function stylize(str, style) {
       //grayscale
       'white'     : ['\033[37m', '\033[39m'],
       'grey'      : ['\033[90m', '\033[39m'],
-      'black'     : ['\033[90m', '\033[39m'],
+      'black'     : ['\033[30m', '\033[39m'],
       //colors
       'blue'      : ['\033[34m', '\033[39m'],
       'cyan'      : ['\033[36m', '\033[39m'],
