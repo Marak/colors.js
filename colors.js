@@ -222,3 +222,7 @@ function zalgo(text, options) {
   };
   return heComes(text);
 }
+
+addProperty('stripColors', function() {
+  return ("" + this).replace(/\u001b\[\d+m/g,'');
+});
