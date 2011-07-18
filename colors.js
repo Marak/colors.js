@@ -23,14 +23,24 @@ THE SOFTWARE.
 
 */
 
+exports.mode = "console";
+
 // prototypes the string object to have additional method calls that add terminal colors
+
+var addProperty = function (color, func) {
+  exports[color] = function(str) {
+    return func.apply(str);
+  };
+  String.prototype.__defineGetter__(color, func);
+}
+
 var isHeadless = (typeof module !== 'undefined');
-['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
+['bold', 'underline', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
   // http://robertnyman.com/javascript/javascript-getters-setters.html
   // Object.defineProperty only works in Chrome
-  String.prototype.__defineGetter__(style, function () {
+  addProperty(style, function () {
     return isHeadless ?
              stylize(this, style) : // for those running in node (headless environments)
              this.replace(/( )/, '$1'); // and for those running in browsers:
@@ -40,7 +50,7 @@ var isHeadless = (typeof module !== 'undefined');
 
 // prototypes string with method "rainbow"
 // rainbow will apply a the color spectrum to a string, changing colors every letter
-String.prototype.__defineGetter__('rainbow', function () {
+addProperty('rainbow', function () {
   if (!isHeadless) {
     return this.replace(/( )/, '$1');
   }
@@ -59,30 +69,53 @@ String.prototype.__defineGetter__('rainbow', function () {
 });
 
 function stylize(str, style) {
-  var styles = {
-  //styles
-  'bold'      : [1,  22],
-  'italic'    : [3,  23],
-  'underline' : [4,  24],
-  'inverse'   : [7,  27],
-  //grayscale
-  'white'     : [37, 39],
-  'grey'      : [90, 39],
-  'black'     : [90, 39],
-  //colors
-  'blue'      : [34, 39],
-  'cyan'      : [36, 39],
-  'green'     : [32, 39],
-  'magenta'   : [35, 39],
-  'red'       : [31, 39],
-  'yellow'    : [33, 39]
-  };
-  return '\033[' + styles[style][0] + 'm' + str +
-         '\033[' + styles[style][1] + 'm';
+  if (exports.mode == 'console') {
+    var styles = {
+      //styles
+      'bold'      : ['\033[1m',  '\033[22m'],
+      'italic'    : ['\033[3m',  '\033[23m'],
+      'underline' : ['\033[4m',  '\033[24m'],
+      'inverse'   : ['\033[7m',  '\033[27m'],
+      //grayscale
+      'white'     : ['\033[37m', '\033[39m'],
+      'grey'      : ['\033[90m', '\033[39m'],
+      'black'     : ['\033[30m', '\033[39m'],
+      //colors
+      'blue'      : ['\033[34m', '\033[39m'],
+      'cyan'      : ['\033[36m', '\033[39m'],
+      'green'     : ['\033[32m', '\033[39m'],
+      'magenta'   : ['\033[35m', '\033[39m'],
+      'red'       : ['\033[31m', '\033[39m'],
+      'yellow'    : ['\033[33m', '\033[39m']
+    };
+  } else if (exports.mode == 'browser') {
+    var styles = {
+      //styles
+      'bold'      : ['<b>',  '</b>'],
+      'italic'    : ['<i>',  '</i>'],
+      'underline' : ['<u>',  '</u>'],
+      'inverse'   : ['<span style="background-color:black;color:white;">',  '</span>'],
+      //grayscale
+      'white'     : ['<span style="color:white;">',   '</span>'],
+      'grey'      : ['<span style="color:grey;">',    '</span>'],
+      'black'     : ['<span style="color:black;">',   '</span>'],
+      //colors
+      'blue'      : ['<span style="color:blue;">',    '</span>'],
+      'cyan'      : ['<span style="color:cyan;">',    '</span>'],
+      'green'     : ['<span style="color:green;">',   '</span>'],
+      'magenta'   : ['<span style="color:magenta;">', '</span>'],
+      'red'       : ['<span style="color:red;">',     '</span>'],
+      'yellow'    : ['<span style="color:yellow;">',  '</span>']
+    };
+  } else {
+    console.log('unsupported mode, try "browser" or "console"');
+  }
+
+  return styles[style][0] + str + styles[style][1];
 };
 
 // don't summon zalgo
-String.prototype.__defineGetter__('zalgo', function () {
+addProperty('zalgo', function () {
   return zalgo(this);
 });
 
@@ -189,3 +222,7 @@ function zalgo(text, options) {
   };
   return heComes(text);
 }
+
+addProperty('stripColors', function() {
+  return ("" + this).replace(/\u001b\[\d+m/g,'');
+});
