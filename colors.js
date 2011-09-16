@@ -48,25 +48,38 @@ var isHeadless = (typeof module !== 'undefined');
   });
 });
 
-// prototypes string with method "rainbow"
-// rainbow will apply a the color spectrum to a string, changing colors every letter
-addProperty('rainbow', function () {
-  if (!isHeadless) {
-    return this.replace(/( )/, '$1');
-  }
-  var rainbowcolors = ['red','yellow','green','blue','magenta']; //RoY G BiV
-  var exploded = this.split("");
-  var i=0;
-  exploded = exploded.map(function(letter) {
-    if (letter==" ") {
-      return letter;
-    }
-    else {
-      return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
-    }
-  });
-  return exploded.join("");
+function sequencer(map) {
+    return function() {
+        if (!isHeadless) {
+            return this.replace(/( )/, '$1');
+        }
+        var exploded = this.split(""); 
+        var i=0;
+        exploded = exploded.map(map);
+        return exploded.join("");
+    }   
+}       
+    
+var rainbowMap = (function () {
+    var rainbowcolors = ['red','yellow','green','blue','magenta']; //RoY G BiV
+    return function(letter, i, exploded) {
+        if (letter==" ") {
+            return letter;
+        } else {
+            return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
+        } 
+    }       
+})();   
+
+exports.addSequencer = function(name, map) {
+	addProperty(name, sequencer(map));
+}
+
+exports.addSequencer('rainbow', rainbowMap);
+exports.addSequencer('zebra', function(letter, i, exploded) {
+    return i % 2 === 0 ? letter : letter.inverse;
 });
+
 
 function stylize(str, style) {
   if (exports.mode == 'console') {
