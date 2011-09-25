@@ -107,8 +107,10 @@ function stylize(str, style) {
       'red'       : ['<span style="color:red;">',     '</span>'],
       'yellow'    : ['<span style="color:yellow;">',  '</span>']
     };
+  } else if (exports.mode == 'none') {
+      return str;
   } else {
-    console.log('unsupported mode, try "browser" or "console"');
+    console.log('unsupported mode, try "browser", "console" or "none"');
   }
 
   return styles[style][0] + str + styles[style][1];
