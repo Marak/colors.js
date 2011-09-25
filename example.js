@@ -1,4 +1,4 @@
-var sys = require('sys');
+var sys = require('util');
 var colors = require('./colors');
 
 //colors.mode = "browser";
