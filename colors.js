@@ -23,7 +23,10 @@ THE SOFTWARE.
 
 */
 
-exports.mode = "console";
+if(typeof module === "undefined") {
+	this.colors = {};
+	exports = this.colors;
+}
 
 // prototypes the string object to have additional method calls that add terminal colors
 
@@ -43,16 +46,13 @@ var isHeadless = (typeof module !== 'undefined');
   addProperty(style, function () {
     return isHeadless ?
              stylize(this, style) : // for those running in node (headless environments)
-             this.replace(/( )/, '$1'); // and for those running in browsers:
+             this.replace(/(.*)/, stylize("$1", style)); // and for those running in browsers:
              // re: ^ you'd think 'return this' works (but doesn't) so replace coerces the string to be a real string
   });
 });
 
 function sequencer(map) {
     return function() {
-        if (!isHeadless) {
-            return this.replace(/( )/, '$1');
-        }
         var exploded = this.split(""); 
         var i=0;
         exploded = exploded.map(map);
@@ -66,7 +66,7 @@ var rainbowMap = (function () {
         if (letter==" ") {
             return letter;
         } else {
-            return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
+            return stylize(letter, rainbowcolors[i++ % rainbowcolors.length]);
         } 
     }       
 })();   
@@ -82,7 +82,7 @@ exports.addSequencer('zebra', function(letter, i, exploded) {
 
 
 function stylize(str, style) {
-  if (exports.mode == 'console') {
+  if (isHeadless) {
     var styles = {
       //styles
       'bold'      : ['\033[1m',  '\033[22m'],
@@ -101,7 +101,7 @@ function stylize(str, style) {
       'red'       : ['\033[31m', '\033[39m'],
       'yellow'    : ['\033[33m', '\033[39m']
     };
-  } else if (exports.mode == 'browser') {
+  } else {
     var styles = {
       //styles
       'bold'      : ['<b>',  '</b>'],
@@ -120,8 +120,6 @@ function stylize(str, style) {
       'red'       : ['<span style="color:red;">',     '</span>'],
       'yellow'    : ['<span style="color:yellow;">',  '</span>']
     };
-  } else {
-    console.log('unsupported mode, try "browser" or "console"');
   }
 
   return styles[style][0] + str + styles[style][1];

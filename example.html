@@ -4,17 +4,42 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Colors Example</title>
     <script src="colors.js"></script>
+	<script>
+		exports.mode = "browser";
+	</script>
     <script type="text/javascript">
-      console.log('Rainbows are fun!'.rainbow);
-      console.log('So '.italic + 'are'.underline + ' styles! '.bold + 'inverse'.inverse);
-      console.log('Chains are also cool.'.bold.italic.underline.red);
+		colors.addSequencer("america", function(letter, i, exploded) {
+			if(letter === " ") return letter;
+
+			switch(i%3) {
+				case 0: return letter.red;
+				case 1: return letter.white;
+				case 2: return letter.blue;
+			}
+		});
+
+		colors.addSequencer("random", (function() {
+			var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+
+			return function(letter, i, exploded) {
+				return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
+			};
+		})());
+
+		console.log("AMERICA! F--K YEAH!".america);
+		console.log("So apparently I've been to Mars, with all the little green men. But you know, I don't recall.".random);
+		console.log('Rainbows are fun!'.rainbow);
+		console.log('So '.italic + 'are'.underline + ' styles! '.bold + 'inverse'.inverse);
+		console.log('Chains are also cool.'.bold.italic.underline.red);
     </script>
   </head>
   <body>
     <script>
       document.write('Rainbows are fun!'.rainbow + '<br>');
       document.write('So '.italic + 'are'.underline + ' styles! '.bold + 'inverse'.inverse + '<br>');
-      document.write('Chains are also cool.'.bold.italic.underline.red);
+      document.write('Chains are also cool.'.bold.italic.underline.red + '<br>');
+	  document.write("AMERICA! F--K YEAH!".america.inverse + '<br>');
+	  document.write("So apparently I've been to Mars, with all the little green men. But you know, I don't recall.".random + '<br>');
     </script>
   </body>
 </html>
