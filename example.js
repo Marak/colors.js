@@ -20,6 +20,7 @@ console.log(colors.stripColors(test));
 console.log(colors.grey("a") + colors.black(" b"));
 
 colors.addSequencer("america", function(letter, i, exploded) {
+	if(letter === " ") return letter;
 	switch(i%3) {
 		case 0: return letter.red;
 		case 1: return letter.white;
@@ -27,4 +28,13 @@ colors.addSequencer("america", function(letter, i, exploded) {
 	}
 });
 
+colors.addSequencer("random", (function() {
+	var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+
+	return function(letter, i, exploded) {
+		return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
+	};
+})());
+
 console.log("AMERICA! F--K YEAH!".america);
+console.log("So apparently I've been to Mars, with all the little green men. But you know, I don't recall.".random);
