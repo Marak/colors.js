@@ -49,35 +49,35 @@ var isHeadless = (typeof module !== 'undefined');
 });
 
 function sequencer(map) {
-    return function() {
-        if (!isHeadless) {
-            return this.replace(/( )/, '$1');
-        }
-        var exploded = this.split(""); 
-        var i=0;
-        exploded = exploded.map(map);
-        return exploded.join("");
-    }   
+  return function () {
+    if (!isHeadless) {
+      return this.replace(/( )/, '$1');
+    }
+    var exploded = this.split("");
+    var i = 0;
+    exploded = exploded.map(map);
+    return exploded.join("");
+  }
 }       
     
 var rainbowMap = (function () {
-    var rainbowcolors = ['red','yellow','green','blue','magenta']; //RoY G BiV
-    return function(letter, i, exploded) {
-        if (letter==" ") {
-            return letter;
-        } else {
-            return stylize(letter,rainbowcolors[i++ % rainbowcolors.length]);
-        } 
-    }       
-})();   
+  var rainbowColors = ['red','yellow','green','blue','magenta']; //RoY G BiV
+  return function (letter, i, exploded) {
+    if (letter == " ") {
+      return letter;
+    } else {
+      return stylize(letter, rainbowColors[i++ % rainbowColors.length]);
+    }
+  }
+})();
 
-exports.addSequencer = function(name, map) {
-	addProperty(name, sequencer(map));
+exports.addSequencer = function (name, map) {
+  addProperty(name, sequencer(map));
 }
 
 exports.addSequencer('rainbow', rainbowMap);
-exports.addSequencer('zebra', function(letter, i, exploded) {
-    return i % 2 === 0 ? letter : letter.inverse;
+exports.addSequencer('zebra', function (letter, i, exploded) {
+  return i % 2 === 0 ? letter : letter.inverse;
 });
 
 
@@ -121,7 +121,7 @@ function stylize(str, style) {
       'yellow'    : ['<span style="color:yellow;">',  '</span>']
     };
   } else if (exports.mode == 'none') {
-      return str;
+    return str;
   } else {
     console.log('unsupported mode, try "browser", "console" or "none"');
   }
