@@ -20,21 +20,46 @@ console.log(colors.stripColors(test));
 console.log(colors.grey("a") + colors.black(" b"));
 
 colors.addSequencer("america", function(letter, i, exploded) {
-	if(letter === " ") return letter;
-	switch(i%3) {
-		case 0: return letter.red;
-		case 1: return letter.white;
-		case 2: return letter.blue;
-	}
+  if(letter === " ") return letter;
+  switch(i%3) {
+    case 0: return letter.red;
+    case 1: return letter.white;
+    case 2: return letter.blue;
+  }
 });
 
 colors.addSequencer("random", (function() {
-	var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+  var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
 
-	return function(letter, i, exploded) {
-		return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
-	};
+  return function(letter, i, exploded) {
+    return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
+  };
 })());
 
 console.log("AMERICA! F--K YEAH!".america);
 console.log("So apparently I've been to Mars, with all the little green men. But you know, I don't recall.".random);
+
+//
+// Custom themes
+//
+
+colors.setTheme({
+  silly: 'rainbow',
+  input: 'grey',
+  verbose: 'cyan',
+  prompt: 'grey',
+  info: 'green',
+  data: 'grey',
+  help: 'cyan',
+  warn: 'yellow',
+  debug: 'blue',
+  error: 'red'
+});
+
+// outputs red text
+console.log("this is an error".error);
+
+// outputs yellow text
+console.log("this is a warning".warn);
+
+

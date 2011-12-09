@@ -1,7 +1,10 @@
 /*
 colors.js
 
-Copyright (c) 2010 Alexis Sellier (cloudhead) , Marak Squires
+Copyright (c) 2010
+
+Marak Squires
+Alexis Sellier (cloudhead)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,28 +26,47 @@ THE SOFTWARE.
 
 */
 
-exports.mode = "console";
+var isHeadless = false;
 
-// prototypes the string object to have additional method calls that add terminal colors
+if (typeof module !== 'undefined') {
+  isHeadless = true;
+}
 
+if (!isHeadless) {
+  var exports = {};
+  var module = {};
+  var colors = exports;
+  exports.mode = "browser";
+} else {
+  exports.mode = "console";
+}
+
+//
+// Prototypes the string object to have additional method calls that add terminal colors
+//
 var addProperty = function (color, func) {
+  var allowOverride = ['bold'];
+  if (""[color] && allowOverride.indexOf(color) === -1) {
+    throw new Error(color + ' already exists on String.prototype, cannot override.')
+  }
   exports[color] = function(str) {
     return func.apply(str);
   };
   String.prototype.__defineGetter__(color, func);
 }
 
-var isHeadless = (typeof module !== 'undefined');
-['bold', 'underline', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(function (style) {
+//
+// Iterate through all default styles and colors
+//
+
+var x = ['bold', 'underline', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+x.forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
   // http://robertnyman.com/javascript/javascript-getters-setters.html
   // Object.defineProperty only works in Chrome
   addProperty(style, function () {
-    return isHeadless ?
-             stylize(this, style) : // for those running in node (headless environments)
-             this.replace(/( )/, '$1'); // and for those running in browsers:
-             // re: ^ you'd think 'return this' works (but doesn't) so replace coerces the string to be a real string
+    return stylize(this, style);
   });
 });
 
@@ -58,8 +80,8 @@ function sequencer(map) {
     exploded = exploded.map(map);
     return exploded.join("");
   }
-}       
-    
+}
+
 var rainbowMap = (function () {
   var rainbowColors = ['red','yellow','green','blue','magenta']; //RoY G BiV
   return function (letter, i, exploded) {
@@ -80,8 +102,16 @@ exports.addSequencer('zebra', function (letter, i, exploded) {
   return i % 2 === 0 ? letter : letter.inverse;
 });
 
+exports.setTheme = function (theme) {
+  Object.keys(theme).forEach(function(prop){
+    addProperty(prop, function(){
+      return exports[theme[prop]](this);
+    });
+  });
+}
 
 function stylize(str, style) {
+
   if (exports.mode == 'console') {
     var styles = {
       //styles
@@ -125,7 +155,6 @@ function stylize(str, style) {
   } else {
     console.log('unsupported mode, try "browser", "console" or "none"');
   }
-
   return styles[style][0] + str + styles[style][1];
 };
 
