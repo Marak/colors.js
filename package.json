@@ -1,7 +1,7 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console like what",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "author": "Marak Squires",
     "repository": {
         "type": "git",
