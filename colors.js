@@ -46,9 +46,6 @@ if (!isHeadless) {
 //
 var addProperty = function (color, func) {
   var allowOverride = ['bold'];
-  if (""[color] && allowOverride.indexOf(color) === -1) {
-    throw new Error(color + ' already exists on String.prototype, cannot override.')
-  }
   exports[color] = function(str) {
     return func.apply(str);
   };
