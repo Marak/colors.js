@@ -10,5 +10,8 @@
     "engines": {
         "node": ">=0.1.90"
     },
+    "scripts": {
+        "test": "node test/require-test.js && node test/stylize-test.js"
+    },
     "main": "colors"
 }

@@ -1,5 +1,6 @@
 var assert = require('assert'),
-    colors = require('./colors');
+    fs = require('fs'),
+    colors = require('../colors');
 
 // 
 // This is a pretty nice example on how tests shouldn't be written. However,
@@ -62,4 +63,3 @@ stylesAll.forEach(function (style) {
   assert.equal(s[style], s);
   assert.equal(colors[style](s), s);
 });
-
