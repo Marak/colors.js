@@ -40,7 +40,7 @@ console.log('OMG Rainbows!'.rainbow); // rainbow (ignores spaces)
 
 ```js
 
-var require('colors');
+var colors = require('colors');
 
 colors.setTheme({
   silly: 'rainbow',
