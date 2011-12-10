@@ -43,6 +43,7 @@ console.log("So apparently I've been to Mars, with all the little green men. But
 // Custom themes
 //
 
+// Load theme with JSON literal
 colors.setTheme({
   silly: 'rainbow',
   input: 'grey',
@@ -62,4 +63,15 @@ console.log("this is an error".error);
 // outputs yellow text
 console.log("this is a warning".warn);
 
+// outputs grey text
+console.log("this is an input".input);
+
+// Load a theme from file
+colors.setTheme('./themes/winston-dark.js', function(err){
+  if (err) {
+    return console.log('error loading theme '.error, err)
+  }
+  // outputs black text
+  console.log("this is an input".input);
+});
 

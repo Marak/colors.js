@@ -89,6 +89,8 @@ var rainbowMap = (function () {
   }
 })();
 
+exports.themes = {};
+
 exports.addSequencer = function (name, map) {
   addProperty(name, sequencer(map));
 }
@@ -98,7 +100,27 @@ exports.addSequencer('zebra', function (letter, i, exploded) {
   return i % 2 === 0 ? letter : letter.inverse;
 });
 
-exports.setTheme = function (theme) {
+exports.setTheme = function (theme, cb) {
+  if(typeof cb !== 'function') {
+    cb = function (err, result) {
+      console.log(err);
+    };
+  }
+  if (typeof theme === 'string') {
+    try {
+      exports.themes[theme] = require(theme);
+      applyTheme(exports.themes[theme]);
+      cb(null, exports.themes[theme]);
+    } catch (err) {
+      return cb(err);
+    }
+  } else {
+    applyTheme(theme);
+  }
+}
+
+function applyTheme (theme) {
+
   //
   // Remark: This is a list of methods that exist
   // on String that you should not overwrite.
@@ -109,6 +131,7 @@ exports.setTheme = function (theme) {
     'indexOf', 'lastIndexof', 'length', 'localeCompare', 'match', 'replace', 'search', 'slice', 'split', 'substring',
     'toLocaleLowerCase', 'toLocaleUpperCase', 'toLowerCase', 'toUpperCase', 'trim', 'trimLeft', 'trimRight'
   ];
+
   Object.keys(theme).forEach(function(prop){
     if (stringPrototypeBlacklist.indexOf(prop) !== -1) {
       console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
