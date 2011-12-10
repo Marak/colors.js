@@ -100,19 +100,14 @@ exports.addSequencer('zebra', function (letter, i, exploded) {
   return i % 2 === 0 ? letter : letter.inverse;
 });
 
-exports.setTheme = function (theme, cb) {
-  if(typeof cb !== 'function') {
-    cb = function (err, result) {
-      console.log(err);
-    };
-  }
+exports.setTheme = function (theme) {
   if (typeof theme === 'string') {
     try {
       exports.themes[theme] = require(theme);
       applyTheme(exports.themes[theme]);
-      cb(null, exports.themes[theme]);
+      return exports.themes[theme];
     } catch (err) {
-      return cb(err);
+      return err;
     }
   } else {
     applyTheme(theme);

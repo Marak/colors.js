@@ -67,11 +67,7 @@ console.log("this is a warning".warn);
 console.log("this is an input".input);
 
 // Load a theme from file
-colors.setTheme('./themes/winston-dark.js', function(err){
-  if (err) {
-    return console.log('error loading theme '.error, err)
-  }
-  // outputs black text
-  console.log("this is an input".input);
-});
+colors.setTheme('./themes/winston-dark.js');
+
+console.log("this is an input".input);
 
