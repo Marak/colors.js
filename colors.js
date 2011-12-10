@@ -45,7 +45,6 @@ if (!isHeadless) {
 // Prototypes the string object to have additional method calls that add terminal colors
 //
 var addProperty = function (color, func) {
-  var allowOverride = ['bold'];
   exports[color] = function(str) {
     return func.apply(str);
   };
@@ -100,10 +99,24 @@ exports.addSequencer('zebra', function (letter, i, exploded) {
 });
 
 exports.setTheme = function (theme) {
+  //
+  // Remark: This is a list of methods that exist
+  // on String that you should not overwrite.
+  //
+  var stringPrototypeBlacklist = [
+    '__defineGetter__', '__defineSetter__', '__lookupGetter__', '__lookupSetter__', 'charAt', 'constructor',
+    'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString', 'toString', 'valueOf', 'charCodeAt',
+    'indexOf', 'lastIndexof', 'length', 'localeCompare', 'match', 'replace', 'search', 'slice', 'split', 'substring',
+    'toLocaleLowerCase', 'toLocaleUpperCase', 'toLowerCase', 'toUpperCase', 'trim', 'trimLeft', 'trimRight'
+  ];
   Object.keys(theme).forEach(function(prop){
-    addProperty(prop, function(){
-      return exports[theme[prop]](this);
-    });
+    if (stringPrototypeBlacklist.indexOf(prop) !== -1) {
+      console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
+    } else {
+      addProperty(prop, function(){
+        return exports[theme[prop]](this);
+      });
+    }
   });
 }
 
