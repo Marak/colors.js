@@ -96,7 +96,7 @@ function stylize(str, style) {
       'yellow'    : ['<span style="color:yellow;">',  '</span>']
     };
   } else if (exports.mode === 'none') {
-    return str;
+    return str+'';
   } else {
     console.log('unsupported mode, try "browser", "console" or "none"');
   }
