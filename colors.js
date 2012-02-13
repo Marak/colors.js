@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-
+(function(module, exports){
 var isHeadless = false;
 
 if (typeof module !== 'undefined') {
@@ -302,3 +302,4 @@ function zalgo(text, options) {
 addProperty('zalgo', function () {
   return zalgo(this);
 });
+})(typeof module == 'undefined' ? undefined : module, typeof exports == 'undefined' ? undefined : exports);
