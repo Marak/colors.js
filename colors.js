@@ -57,7 +57,7 @@ function stylize(str, style) {
 
   var styles;
 
-  if (exports.mode === 'console') {
+  if (exports.mode === 'console' && process.stdout.isTTY || exports.mode === 'console-forced') {
     styles = {
       //styles
       'bold'      : ['\033[1m',  '\033[22m'],
@@ -76,6 +76,8 @@ function stylize(str, style) {
       'red'       : ['\033[31m', '\033[39m'],
       'yellow'    : ['\033[33m', '\033[39m']
     };
+  } else if (exports.mode === 'console' && !process.stdout.isTTY) {
+      return str;
   } else if (exports.mode === 'browser') {
     styles = {
       //styles

@@ -1,7 +1,7 @@
 var assert = require('assert'),
     colors = require('./colors');
 
-// 
+//
 // This is a pretty nice example on how tests shouldn't be written. However,
 // it's more about API stability than about really testing it (although it's
 // a pretty complete test suite).
@@ -29,6 +29,7 @@ function h(s, color) {
 var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 
+process.stdout.isTTY = true;
 colors.mode = 'console';
 assert.equal(s.bold, '\033[1m' + s + '\033[22m');
 assert.equal(s.italic, '\033[3m' + s + '\033[23m');
@@ -46,6 +47,35 @@ aE(s, 'red', 31);
 aE(s, 'yellow', 33);
 assert.equal(s, 'string');
 
+/* if it is on "console" mode but the output is not a TTY it should not print ANSI characters */
+colors.mode = 'console';
+process.stdout.isTTY = false;
+stylesAll.forEach(function (style) {
+  assert.equal(s[style], s);
+  assert.equal(colors[style](s), s);
+});
+process.stdout.isTTY = true;
+
+/* although "console-forced" will still output the ANSI characters */
+colors.mode = 'console-forced';
+process.stdout.isTTY = false;
+assert.equal(s.bold, '\033[1m' + s + '\033[22m');
+assert.equal(s.italic, '\033[3m' + s + '\033[23m');
+assert.equal(s.underline, '\033[4m' + s + '\033[24m');
+assert.equal(s.inverse, '\033[7m' + s + '\033[27m');
+assert.ok(s.rainbow);
+aE(s, 'white', 37);
+aE(s, 'grey', 90);
+aE(s, 'black', 30);
+aE(s, 'blue', 34);
+aE(s, 'cyan', 36);
+aE(s, 'green', 32);
+aE(s, 'magenta', 35);
+aE(s, 'red', 31);
+aE(s, 'yellow', 33);
+assert.equal(s, 'string');
+
+process.stdout.isTTY = true;
 colors.mode = 'browser';
 assert.equal(s.bold, '<b>' + s + '</b>');
 assert.equal(s.italic, '<i>' + s + '</i>');
