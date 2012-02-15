@@ -1,7 +1,7 @@
 var assert = require('assert'),
     colors = require('./colors');
 
-// 
+//
 // This is a pretty nice example on how tests shouldn't be written. However,
 // it's more about API stability than about really testing it (although it's
 // a pretty complete test suite).
@@ -29,6 +29,7 @@ function h(s, color) {
 var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 
+process.stdout.isTTY = true;
 colors.mode = 'console';
 assert.equal(s.bold, '\033[1m' + s + '\033[22m');
 assert.equal(s.italic, '\033[3m' + s + '\033[23m');
@@ -45,6 +46,15 @@ aE(s, 'magenta', 35);
 aE(s, 'red', 31);
 aE(s, 'yellow', 33);
 assert.equal(s, 'string');
+
+/* if it is on "console" mode but the output is not a TTY it should not print ANSI characters */
+colors.mode = 'console';
+process.stdout.isTTY = false;
+stylesAll.forEach(function (style) {
+  assert.equal(s[style], s);
+  assert.equal(colors[style](s), s);
+});
+process.stdout.isTTY = true;
 
 colors.mode = 'browser';
 assert.equal(s.bold, '<b>' + s + '</b>');
