@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/Marak/colors.js.png)](http://travis-ci.org/Marak/colors.js)
 # colors.js - get color and style in your node.js console ( and browser ) like what
 
 <img src="http://i.imgur.com/goJdO.png" border = "0"/>
