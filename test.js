@@ -46,6 +46,11 @@ aE(s, 'red', 31);
 aE(s, 'yellow', 33);
 assert.equal(s, 'string');
 
+colors.setTheme({error:'red'});
+
+assert.equal(typeof("astring".red),'string');
+assert.equal(typeof("astring".error),'string');
+
 colors.mode = 'browser';
 assert.equal(s.bold, '<b>' + s + '</b>');
 assert.equal(s.italic, '<i>' + s + '</i>');
@@ -57,9 +62,14 @@ stylesColors.forEach(function (color) {
   assert.equal(colors[color](s), h(s, color));
 });
 
+assert.equal(typeof("astring".red),'string');
+assert.equal(typeof("astring".error),'string');
+
 colors.mode = 'none';
 stylesAll.forEach(function (style) {
   assert.equal(s[style], s);
   assert.equal(colors[style](s), s);
 });
 
+assert.equal(typeof("astring".red),'string');
+assert.equal(typeof("astring".error),'string');
