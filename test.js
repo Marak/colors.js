@@ -10,7 +10,7 @@ var assert = require('assert'),
 var s = 'string';
 
 function a(s, code) {
-  return '\033[' + code.toString() + 'm' + s + '\033[39m';
+  return '\x1B[' + code.toString() + 'm' + s + '\x1B[39m';
 }
 
 function aE(s, color, code) {
@@ -30,10 +30,10 @@ var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta'
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 
 colors.mode = 'console';
-assert.equal(s.bold, '\033[1m' + s + '\033[22m');
-assert.equal(s.italic, '\033[3m' + s + '\033[23m');
-assert.equal(s.underline, '\033[4m' + s + '\033[24m');
-assert.equal(s.inverse, '\033[7m' + s + '\033[27m');
+assert.equal(s.bold, '\x1B[1m' + s + '\x1B[22m');
+assert.equal(s.italic, '\x1B[3m' + s + '\x1B[23m');
+assert.equal(s.underline, '\x1B[4m' + s + '\x1B[24m');
+assert.equal(s.inverse, '\x1B[7m' + s + '\x1B[27m');
 assert.ok(s.rainbow);
 aE(s, 'white', 37);
 aE(s, 'grey', 90);
