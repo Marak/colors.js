@@ -123,7 +123,15 @@ function applyTheme(theme) {
       console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
     } else {
       addProperty(prop, function () {
-        return exports[theme[prop]](this);
+        if (typeof(theme[prop]) === 'string') {
+            return exports[theme[prop]](this);
+        }
+
+        var ret = this;
+        for (var t = 0; t < theme[prop].length; t++) {
+            ret = exports[theme[prop][t]](ret);
+        }
+        return ret;
       });
     }
   });
