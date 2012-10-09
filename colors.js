@@ -121,10 +121,22 @@ function applyTheme(theme) {
   Object.keys(theme).forEach(function (prop) {
     if (stringPrototypeBlacklist.indexOf(prop) !== -1) {
       console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
-    } else {
-      addProperty(prop, function () {
-        return exports[theme[prop]](this);
-      });
+    }
+    else {
+      if (typeof(theme[prop]) === 'string') {
+        addProperty(prop, function () {
+            return exports[theme[prop]](this);
+        });
+      }
+      else {
+        addProperty(prop, function () {
+          var ret = this;
+          for (var t = 0; t < theme[prop].length; t++) {
+              ret = exports[theme[prop][t]](ret);
+          }
+          return ret;
+        });
+      }
     }
   });
 }
