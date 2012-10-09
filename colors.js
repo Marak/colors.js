@@ -49,7 +49,8 @@ var addProperty = function (color, func) {
     return func.apply(str);
   };
   Object.defineProperty(String.prototype, color, {
-    get: func
+    get: func,
+    configurable: true
   });
 };
 
