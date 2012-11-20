@@ -33,6 +33,7 @@ colors.mode = 'console';
 assert.equal(s.bold, '\x1B[1m' + s + '\x1B[22m');
 assert.equal(s.italic, '\x1B[3m' + s + '\x1B[23m');
 assert.equal(s.underline, '\x1B[4m' + s + '\x1B[24m');
+assert.equal(s.strikethrough, '\x1B[9m' + s + '\x1B[29m');
 assert.equal(s.inverse, '\x1B[7m' + s + '\x1B[27m');
 assert.ok(s.rainbow);
 aE(s, 'white', 37);
@@ -55,6 +56,7 @@ colors.mode = 'browser';
 assert.equal(s.bold, '<b>' + s + '</b>');
 assert.equal(s.italic, '<i>' + s + '</i>');
 assert.equal(s.underline, '<u>' + s + '</u>');
+assert.equal(s.strikethrough, '<del>' + s + '</del>');
 assert.equal(s.inverse, '<span style="background-color:black;color:white;">' + s + '</span>');
 assert.ok(s.rainbow);
 stylesColors.forEach(function (color) {
