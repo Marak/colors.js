@@ -62,6 +62,13 @@ console.log("this is an error".error);
 console.log("this is a warning".warn);
 ```
 
+# Disable colors.js
+
+This is useful if you want to remove the colors from the output of an external lib, for logging, for example. It works globally.
+
+```
+colors.disable();
+```
 
 ### Contributors 
 
@@ -72,6 +79,7 @@ nicoreed (Nico Reed)
 morganrallen (Morgan Allen)
 JustinCampbell (Justin Campbell)
 ded (Dustin Diaz)
+pygy (Pierre-Yves Gérardy)
 
 
 ####  , Marak Squires , Justin Campbell, Dustin Diaz (@ded)
