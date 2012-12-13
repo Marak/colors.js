@@ -49,7 +49,8 @@ var addProperty = function (color, func) {
     return func.apply(str);
   };
   Object.defineProperty(String.prototype, color, {
-    get: func
+    get: func,
+    configurable: true
   });
 };
 
@@ -192,6 +193,25 @@ exports.setTheme = function (theme) {
   }
 };
 
+var exported = [
+  'wipe', 'themes', 'addSequencer', 'setTheme'
+].reduce(function(set,f) {
+  set[f] = true;
+  return set;
+}, {});
+
+var returnThis = function () { return '' + this; };
+
+exports.disable = function () {
+  for (color in exports) {
+    if (exports.hasOwnProperty(color) && !exported[color]) {
+      addProperty(color, returnThis);
+    }
+  }
+  exports.addSequencer = function (name, map) {
+    addProperty(name, returnThis);
+  };
+};
 
 addProperty('stripColors', function () {
   return ("" + this).replace(/\x1B\[\d+m/g, '');
