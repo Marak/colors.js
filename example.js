@@ -12,6 +12,10 @@ console.log("a".grey + " b".black);
 
 console.log("Zebras are so fun!".zebra);
 
+//
+// Remark: .strikethrough may not work with Mac OS Terminal App
+//
+console.log("This is " + "not".strikethrough + " fun.");
 console.log(colors.rainbow('Rainbows are fun!'));
 console.log(colors.italic('So ') + colors.underline('are') + colors.bold(' styles! ') + colors.inverse('inverse')); // styles not widely supported
 console.log(colors.bold(colors.italic(colors.underline(colors.red('Chains are also cool.'))))); // styles not widely supported
