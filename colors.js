@@ -48,9 +48,11 @@ var addProperty = function (color, func) {
   exports[color] = function (str) {
     return func.apply(str);
   };
-  Object.defineProperty(String.prototype, color, {
-    get: func
-  });
+  if (String.prototype[color] === undefined) {
+    Object.defineProperty(String.prototype, color, {
+      get: func
+    });
+  }
 };
 
 
