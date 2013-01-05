@@ -99,10 +99,30 @@ function stylize(str, style) {
       'red'       : ['<span style="color:red;">',     '</span>'],
       'yellow'    : ['<span style="color:yellow;">',  '</span>']
     };
+  } else if (exports.mode === 'browser-css') {
+    styles = {
+      //styles
+      'bold'      : ['<span class="ansi-escape ansi-escape-bold">',      '</span>'],
+      'italic'    : ['<span class="ansi-escape ansi-escape-italic">',    '</span>'],
+      'underline' : ['<span class="ansi-escape ansi-escape-underline">', '</span>'],
+      'inverse'   : ['<span class="ansi-escape ansi-escape-inverse">',   '</span>'],
+      'strikethrough' : ['<span class="ansi-escape ansi-escape-strikethrough">', '</span>'],
+      //grayscale
+      'white'     : ['<span class="ansi-escape ansi-escape-white">',   '</span>'],
+      'grey'      : ['<span class="ansi-escape ansi-escape-grey">',    '</span>'],
+      'black'     : ['<span class="ansi-escape ansi-escape-black">',   '</span>'],
+      //colors
+      'blue'      : ['<span class="ansi-escape ansi-escape-blue">',    '</span>'],
+      'cyan'      : ['<span class="ansi-escape ansi-escape-cyan">',    '</span>'],
+      'green'     : ['<span class="ansi-escape ansi-escape-green">',   '</span>'],
+      'magenta'   : ['<span class="ansi-escape ansi-escape-magenta">', '</span>'],
+      'red'       : ['<span class="ansi-escape ansi-escape-red">',     '</span>'],
+      'yellow'    : ['<span class="ansi-escape ansi-escape-yellow">',  '</span>']
+    };
   } else if (exports.mode === 'none') {
     return str+'';
   } else {
-    console.log('unsupported mode, try "browser", "console" or "none"');
+    console.log('unsupported mode, try "browser", "browser-css", "console" or "none"');
   }
   return styles[style][0] + str + styles[style][1];
 }
