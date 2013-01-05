@@ -32,8 +32,8 @@ function css(s, color) {
 }
 
 var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
-var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 var stylesNormal = stylesColors.concat(['bold', 'italic', 'underline', 'inverse']);
+var stylesAll = stylesNormal.concat(['rainbow']);
 
 colors.mode = 'console';
 assert.equal(s.bold, '\x1B[1m' + s + '\x1B[22m');
