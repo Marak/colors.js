@@ -48,7 +48,18 @@ var addProperty = function (color, func) {
   exports[color] = function (str) {
     return func.apply(str);
   };
-  String.prototype.__defineGetter__(color, func);
+  if (typeof Object.defineProperty === 'function') {
+    Object.defineProperty(String.prototype, color, {
+      value: function() {
+        return func.apply(this);
+      },
+      writable: true,
+      enumerable: false,
+      configurable: true
+    });
+  } else {
+    String.prototype.__defineGetter__(color, func);
+  }
 };
 
 
@@ -147,10 +158,6 @@ function applyTheme(theme) {
 //
 var x = ['bold', 'underline', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
 x.forEach(function (style) {
-
-  // __defineGetter__ at the least works in more browsers
-  // http://robertnyman.com/javascript/javascript-getters-setters.html
-  // Object.defineProperty only works in Chrome
   addProperty(style, function () {
     return stylize(this, style);
   });
