@@ -62,6 +62,18 @@ console.log("this is an error".error);
 console.log("this is a warning".warn);
 ```
 
+# Changing modes
+
+```js
+var colors = require('colors');
+...
+colors.mode = 'none'; // No colors at all
+colors.mode = 'console'; // Adds terminal colors
+colors.mode = 'browser'; // Adds HTML colors
+colors.mode = 'browser-css'; // Adds special CSS (see examples/example.css)
+```
+
+# Printing HTML
 
 ### Contributors 
 

@@ -21,7 +21,7 @@
  THE SOFTWARE.
  */
 // NODE (dcode): This is a cored version for primary use in node. Zalgo has left the building.
-(function (global) {
+(function (global) { // #22
     'use strict';
     
     /**
@@ -46,14 +46,14 @@
 
     /**
      * All themes we know about. Contains only the "default" theme by default.
-     * @type {Object.<string,!Object>}
+     * @type {!Object.<string,!Object>}
      * @expose
      */
     colors.themes = {};
 
     /**
      * Terminal colors.
-     * @type {Object.<string,Array.<string>>}
+     * @type {!Object} Hello Closure
      */
     var consoleStyles = {
         'bold': ['\x1B[1m', '\x1B[22m'],
@@ -62,6 +62,7 @@
         'inverse': ['\x1B[7m', '\x1B[27m'],
         'strikethrough': ['\x1B[9m', '\x1B[29m'],
         'white': ['\x1B[37m', '\x1B[39m'],
+        'gray': ['\x1B[90m', '\x1B[39m'],
         'grey': ['\x1B[90m', '\x1B[39m'],
         'black': ['\x1B[30m', '\x1B[39m'],
         'blue': ['\x1B[34m', '\x1B[39m'],
@@ -74,7 +75,7 @@
 
     /**
      * HTML.
-     * @type {Object.<string,Array.<string>>}
+     * @type {!Object.<string,Array.<string>>}
      */
     var browserStyles = {
         'bold' : ['<b>', '</b>'],
@@ -83,7 +84,8 @@
         'inverse' : ['<span style="background-color:black;color:white;">', '</span>'],
         'strikethrough' : ['<del>', '</del>'],
         'white' : ['<span style="color:white;">', '</span>'],
-        'grey' : ['<span style="color:grey;">', '</span>'],
+        'gray' : ['<span style="color:gray;">', '</span>'], // #46
+        'grey' : ['<span style="color:grey;">', '</span>'], // Let the user decide
         'black' : ['<span style="color:black;">', '</span>'],
         'blue' : ['<span style="color:blue;">', '</span>'],
         'cyan' : ['<span style="color:cyan;">', '</span>'],
@@ -92,6 +94,34 @@
         'red' : ['<span style="color:red;">', '</span>'],
         'yellow' : ['<span style="color:yellow;">', '</span>']
     };
+
+    /**
+     * CSS.
+     * @type {!Object.<string,Array.<string>>}
+     */
+    var cssStyles = { // #39
+        'bold' : ['<span class="ansi-escape ansi-escape-bold">', '</span>'],
+        'italic' : ['<span class="ansi-escape ansi-escape-italic">', '</span>'],
+        'underline' : ['<span class="ansi-escape ansi-escape-underline">', '</span>'],
+        'inverse' : ['<span class="ansi-escape ansi-escape-inverse">', '</span>'],
+        'strikethrough' : ['<span class="ansi-escape ansi-escape-strikethrough">', '</span>'],
+        'white' : ['<span class="ansi-escape ansi-escape-white">', '</span>'],
+        'gray' : ['<span class="ansi-escape ansi-escape-gray">', '</span>'],
+        'grey' : ['<span class="ansi-escape ansi-escape-grey">', '</span>'],
+        'black' : ['<span class="ansi-escape ansi-escape-black">', '</span>'],
+        'blue' : ['<span class="ansi-escape ansi-escape-blue">', '</span>'],
+        'cyan' : ['<span class="ansi-escape ansi-escape-cyan">', '</span>'],
+        'green' : ['<span class="ansi-escape ansi-escape-green">', '</span>'],
+        'magenta' : ['<span class="ansi-escape ansi-escape-magenta">', '</span>'],
+        'red' : ['<span class="ansi-escape ansi-escape-red">', '</span>'],
+        'yellow' : ['<span class="ansi-escape ansi-escape-yellow">', '</span>']
+    };
+
+    /**
+     * Remember all getters that we defined.
+     * @type {!Object}
+     */
+    var definedGetters = {};
 
     /**
      * Prototypes the string object to have additional properties that wraps the current string in colors when accessed.
@@ -105,8 +135,50 @@
             return func.apply(str);
         };
         // And on top of all strings
-        String.prototype.__defineGetter__(color, func);
+        try {
+            String.prototype.__defineGetter__(color, func);
+            definedGetters[color] = func;
+        } catch (e) {} // #25
     }
+    
+    /**
+     * Whether colors are currently installed on the global scope.
+     * @type {boolean}
+     * @private
+     **/
+    var installed = true;
+
+    /**
+     * Uninstalls colors from the global scope.
+     * @returns {boolean} true if successfully uninstalled, false if already uninstalled
+     * @expose
+     */
+    colors.uninstall = function() { // #41
+        if (installed) {
+            Object.keys(definedGetters).forEach(function(color) {
+                String.prototype.__defineGetter__(color, null);
+            });
+            installed = false;
+            return true;
+        }
+        return false;
+    };
+
+    /**
+     * Reinstalls colors on the global scope.
+     * @returns {boolean} true if successfully reinstalled, false if already installed
+     * @expose
+     */
+    colors.install = function() {
+        if (!installed) {
+            Object.keys(definedGetters).forEach(function(color) {
+                String.prototype.__defineGetter__(color, definedGetters[color]);
+            });
+            installed = true;
+            return true;
+        }
+        return false;
+    };
 
     /**
      * Applies a style to a string.
@@ -120,13 +192,15 @@
             return consoleStyles[style][0] + str + consoleStyles[style][1];
         } else if (colors.mode == 'browser') {
             return browserStyles[style][0] + str + browserStyles[style][1];
+        } else if (colors.mode == 'browser-css') {
+            return cssStyles[style][0] + str + browserStyles[style][1];
         }
         return str+'';
     }
 
     /**
      * Rainbow colors.
-     * @type {Array.<string>}
+     * @type {!Array.<string>}
      * @const
      * @private
      */
@@ -134,7 +208,7 @@
 
     /**
      * String properties that should never be overwritten.
-     * @type {Array.<string>}
+     * @type {!Array.<string>}
      * @const
      */
     var prototypeBlacklist = [
@@ -154,25 +228,23 @@
                 return;
             }
             if (typeof theme[prop] == 'string') {
-                addProperty(prop, function () {
-                    return colors[theme[prop]](this);
-                });
-            } else {
-                addProperty(prop, function () {
-                    var ret = this;
-                    for (var t=0; t<theme[prop].length; t++) {
-                        ret = colors[theme[prop][t]](ret);
-                    }
-                    return ret;
-                });
+                // Multiple colors white-space seperated #45, e.g. "red bold", #18
+                theme[prop] = theme[prop].split(' ');
             }
+            addProperty(prop, function () {
+                var ret = this;
+                for (var t=0; t<theme[prop].length; t++) {
+                    ret = colors[theme[prop][t]](ret);
+                }
+                return ret;
+            });
         });
     }
 
     /**
      * Sets another theme.
      * @param {string|!Object} theme Theme name or 
-     * @returns {Object|Error|undefined}
+     * @returns {!Object|!Error|undefined}
      * @expose
      */
     colors.setTheme = function(theme) {
@@ -219,7 +291,7 @@
     };
     
     // Apply defaults
-    ['bold', 'underline', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'].forEach(
+    Object.keys(consoleStyles).forEach(
         function (style) {
             addProperty(style, function () {
                 return stylize(this, style);
@@ -236,7 +308,7 @@
     addProperty('stripColors', function () {
         if (colors.mode == 'console') {
             return this.replace(/\x1B\[\d+m/g, '');
-        } else if (colors.mode == 'browser') {
+        } else if (colors.mode == 'browser' || colors.mode == 'browser-css') {
             return this.replace(/<\/?(?:span|u|i|u|del)\b[^>]*>/g, '');
         }
         return this+'';

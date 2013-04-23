@@ -1,4 +1,4 @@
-var colors = require('./colors');
+var colors = require('./../colors');
 
 //colors.mode = "browser";
 

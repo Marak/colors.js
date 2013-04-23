@@ -1,6 +1,6 @@
 var assert = require("assert"),
     path = require("path"),
-    colors = require(path.join(__dirname, 'colors.js'));
+    colors = require(path.join(__dirname, '..', 'colors.js'));
 
 var s = 'string';
 
