@@ -50,9 +50,9 @@ colors.setTheme({
   info: 'green',
   data: 'grey',
   help: 'cyan',
-  warn: 'yellow',
+  warn: ['yellow', 'underline'],
   debug: 'blue',
-  error: 'red'
+  error: 'red bold'
 });
 
 // outputs red text
@@ -62,6 +62,27 @@ console.log("this is an error".error);
 console.log("this is a warning".warn);
 ```
 
+# Changing modes
+
+```js
+var colors = require('colors');
+...
+colors.mode = 'none'; // No colors at all
+colors.mode = 'console'; // Adds terminal colors
+colors.mode = 'browser'; // Adds HTML colors
+colors.mode = 'browser-css'; // Adds special CSS (see examples/example.css)
+```
+
+# Uninstalling / reinstalling on the global scope
+
+```js
+var colors = require('colors');
+...
+colors.uninstall();
+...
+colors.install();
+...
+```
 
 ### Contributors 
 
@@ -72,6 +93,7 @@ nicoreed (Nico Reed)
 morganrallen (Morgan Allen)
 JustinCampbell (Justin Campbell)
 ded (Dustin Diaz)
+dcode (Daniel Wirtz)
 
-
-####  , Marak Squires , Justin Campbell, Dustin Diaz (@ded)
+### License
+MIT

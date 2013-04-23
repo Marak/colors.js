@@ -1,11 +1,6 @@
-var assert = require('assert'),
-    colors = require('./colors');
-
-// 
-// This is a pretty nice example on how tests shouldn't be written. However,
-// it's more about API stability than about really testing it (although it's
-// a pretty complete test suite).
-//
+var assert = require("assert"),
+    path = require("path"),
+    colors = require(path.join(__dirname, '..', 'colors.js'));
 
 var s = 'string';
 
@@ -22,8 +17,8 @@ function aE(s, color, code) {
 }
 
 function h(s, color) {
-  return '<span style="color:' + color + ';">' + s + '</span>';
-  // that's pretty dumb approach to testing it
+    return '<span style="color:' + color + ';">' + s + '</span>';
+    // that's pretty dumb approach to testing it
 }
 
 var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
@@ -52,7 +47,7 @@ colors.setTheme({error:'red'});
 assert.equal(typeof("astring".red),'string');
 assert.equal(typeof("astring".error),'string');
 
-colors.mode = 'browser';
+colors.mode = "browser";
 assert.equal(s.bold, '<b>' + s + '</b>');
 assert.equal(s.italic, '<i>' + s + '</i>');
 assert.equal(s.underline, '<u>' + s + '</u>');
@@ -60,8 +55,8 @@ assert.equal(s.strikethrough, '<del>' + s + '</del>');
 assert.equal(s.inverse, '<span style="background-color:black;color:white;">' + s + '</span>');
 assert.ok(s.rainbow);
 stylesColors.forEach(function (color) {
-  assert.equal(s[color], h(s, color));
-  assert.equal(colors[color](s), h(s, color));
+    assert.equal(s[color], h(s, color));
+    assert.equal(colors[color](s), h(s, color));
 });
 
 assert.equal(typeof("astring".red),'string');
@@ -75,3 +70,5 @@ stylesAll.forEach(function (style) {
 
 assert.equal(typeof("astring".red),'string');
 assert.equal(typeof("astring".error),'string');
+
+console.log("OK");
