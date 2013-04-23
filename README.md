@@ -50,9 +50,9 @@ colors.setTheme({
   info: 'green',
   data: 'grey',
   help: 'cyan',
-  warn: 'yellow',
+  warn: ['yellow', 'underline'],
   debug: 'blue',
-  error: 'red'
+  error: 'red bold'
 });
 
 // outputs red text
