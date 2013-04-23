@@ -39,6 +39,16 @@ colors.addSequencer = function(name, map) {};
 colors.setTheme = function (theme) {};
 
 /**
+ * @returns {boolean}
+ */
+colors.uninstall = function() {};
+
+/**
+ * @returns {boolean}
+ */
+colors.install = function() {};
+
+/**
  * @type {string}
  */
 // String.prototype.bold;

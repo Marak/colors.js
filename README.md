@@ -73,7 +73,16 @@ colors.mode = 'browser'; // Adds HTML colors
 colors.mode = 'browser-css'; // Adds special CSS (see examples/example.css)
 ```
 
-# Printing HTML
+# Uninstalling / reinstalling on the global scope
+
+```js
+var colors = require('colors');
+...
+colors.uninstall();
+...
+colors.install();
+...
+```
 
 ### Contributors 
 
@@ -84,6 +93,7 @@ nicoreed (Nico Reed)
 morganrallen (Morgan Allen)
 JustinCampbell (Justin Campbell)
 ded (Dustin Diaz)
+dcode (Daniel Wirtz)
 
-
-####  , Marak Squires , Justin Campbell, Dustin Diaz (@ded)
+### License
+MIT
