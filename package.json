@@ -1,7 +1,7 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console like what",
-    "version": "0.6.0-1",
+    "version": "0.7.0",
     "author": "Marak Squires",
     "homepage": "https://github.com/Marak/colors.js",
     "bugs": "https://github.com/Marak/colors.js/issues",
@@ -13,5 +13,9 @@
     "engines": {
         "node": ">=0.1.90"
     },
-    "main": "colors"
+    "main": "./colors.min.js",
+    "scripts": {
+        "test": "node tests/test.js",
+        "compile": "ccjs colors.js --warning_level=VERBOSE --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/colors.js > colors.min.js"
+    }
 }

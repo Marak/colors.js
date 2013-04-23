@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="en-us">
-  <head>
+<head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Colors Example</title>
     <script src="colors.js"></script>
-  </head>
-  <body>
-    <script>
+</head>
+<body>
+<script>
 
     var test = colors.red("hopefully colorless output");
 
@@ -29,20 +29,20 @@
     document.write(colors.grey("a") + colors.black(" b"));
 
     colors.addSequencer("america", function(letter, i, exploded) {
-      if(letter === " ") return letter;
-      switch(i%3) {
-        case 0: return letter.red;
-        case 1: return letter.white;
-        case 2: return letter.blue;
-      }
+        if(letter === " ") return letter;
+        switch(i%3) {
+            case 0: return letter.red;
+            case 1: return letter.white;
+            case 2: return letter.blue;
+        }
     });
 
     colors.addSequencer("random", (function() {
-      var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+        var available = ['bold', 'underline', 'italic', 'inverse', 'grey', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
 
-      return function(letter, i, exploded) {
-        return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
-      };
+        return function(letter, i, exploded) {
+            return letter === " " ? letter : letter[available[Math.round(Math.random() * (available.length - 1))]];
+        };
     })());
 
     document.write("AMERICA! F--K YEAH!".america);
@@ -53,16 +53,16 @@
     //
 
     colors.setTheme({
-      silly: 'rainbow',
-      input: 'grey',
-      verbose: 'cyan',
-      prompt: 'grey',
-      info: 'green',
-      data: 'grey',
-      help: 'cyan',
-      warn: 'yellow',
-      debug: 'blue',
-      error: 'red'
+        silly: 'rainbow',
+        input: 'grey',
+        verbose: 'cyan',
+        prompt: 'grey',
+        info: 'green',
+        data: 'grey',
+        help: 'cyan',
+        warn: 'yellow',
+        debug: 'blue',
+        error: 'red'
     });
 
     // outputs red text
@@ -71,6 +71,6 @@
     // outputs yellow text
     document.write("this is a warning".warn);
 
-    </script>
-  </body>
+</script>
+</body>
 </html>
