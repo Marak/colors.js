@@ -87,7 +87,7 @@ function stylize(str, style) {
       'strikethrough' : ['<del>',  '</del>'],
       //grayscale
       'white'     : ['<span style="color:white;">',   '</span>'],
-      'grey'      : ['<span style="color:grey;">',    '</span>'],
+      'grey'      : ['<span style="color:gray;">',    '</span>'],
       'black'     : ['<span style="color:black;">',   '</span>'],
       //colors
       'blue'      : ['<span style="color:blue;">',    '</span>'],
