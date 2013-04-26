@@ -26,8 +26,14 @@ function h(s, color) {
   // that's pretty dumb approach to testing it
 }
 
+function css(s, color) {
+  return '<span class="ansi-escape ansi-escape-' + color + '">' + s + '</span>';
+  // not better
+}
+
 var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
-var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
+var stylesNormal = stylesColors.concat(['bold', 'italic', 'underline', 'inverse']);
+var stylesAll = stylesNormal.concat(['rainbow']);
 
 colors.mode = 'console';
 assert.equal(s.bold, '\x1B[1m' + s + '\x1B[22m');
@@ -62,6 +68,16 @@ assert.ok(s.rainbow);
 stylesColors.forEach(function (color) {
   assert.equal(s[color], h(s, color));
   assert.equal(colors[color](s), h(s, color));
+});
+
+assert.equal(typeof("astring".red),'string');
+assert.equal(typeof("astring".error),'string');
+
+colors.mode = 'browser-css';
+assert.ok(s.rainbow);
+stylesNormal.forEach(function (color) {
+  assert.equal(s[color], css(s, color));
+  assert.equal(colors[color](s), css(s, color));
 });
 
 assert.equal(typeof("astring".red),'string');
