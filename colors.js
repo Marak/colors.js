@@ -48,7 +48,16 @@ var addProperty = function (color, func) {
   exports[color] = function (str) {
     return func.apply(str);
   };
-  String.prototype.__defineGetter__(color, func);
+
+  if (Object.defineProperty) {
+    Object.defineProperty(Object.prototype, color, {
+      get : func,
+      configurable: true,
+      enumerable: false
+    });
+  } else {
+      String.prototype.__defineGetter__(color, func);
+  }
 };
 
 
