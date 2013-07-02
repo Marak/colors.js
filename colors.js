@@ -50,7 +50,7 @@ var addProperty = function (color, func) {
   };
 
   if (Object.defineProperty) {
-    Object.defineProperty(Object.prototype, color, {
+    Object.defineProperty(String.prototype, color, {
       get : func,
       configurable: true,
       enumerable: false
