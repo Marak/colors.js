@@ -74,6 +74,7 @@ function stylize(str, style) {
       'underline' : ['\x1B[4m',  '\x1B[24m'],
       'inverse'   : ['\x1B[7m',  '\x1B[27m'],
       'strikethrough' : ['\x1B[9m',  '\x1B[29m'],
+      //text colors
       //grayscale
       'white'     : ['\x1B[37m', '\x1B[39m'],
       'grey'      : ['\x1B[90m', '\x1B[39m'],
@@ -84,7 +85,19 @@ function stylize(str, style) {
       'green'     : ['\x1B[32m', '\x1B[39m'],
       'magenta'   : ['\x1B[35m', '\x1B[39m'],
       'red'       : ['\x1B[31m', '\x1B[39m'],
-      'yellow'    : ['\x1B[33m', '\x1B[39m']
+      'yellow'    : ['\x1B[33m', '\x1B[39m'],
+      //background colors
+      //grayscale
+      'whiteBG'     : ['\x1B[47m', '\x1B[49m'],
+      'greyBG'      : ['\x1B[49;5;8m', '\x1B[49m'],
+      'blackBG'     : ['\x1B[40m', '\x1B[49m'],
+      //colors
+      'blueBG'      : ['\x1B[44m', '\x1B[49m'],
+      'cyanBG'      : ['\x1B[46m', '\x1B[49m'],
+      'greenBG'     : ['\x1B[42m', '\x1B[49m'],
+      'magentaBG'   : ['\x1B[45m', '\x1B[49m'],
+      'redBG'       : ['\x1B[41m', '\x1B[49m'],
+      'yellowBG'    : ['\x1B[43m', '\x1B[49m']
     };
   } else if (exports.mode === 'browser') {
     styles = {
@@ -94,6 +107,7 @@ function stylize(str, style) {
       'underline' : ['<u>',  '</u>'],
       'inverse'   : ['<span style="background-color:black;color:white;">',  '</span>'],
       'strikethrough' : ['<del>',  '</del>'],
+      //text colors
       //grayscale
       'white'     : ['<span style="color:white;">',   '</span>'],
       'grey'      : ['<span style="color:gray;">',    '</span>'],
@@ -104,7 +118,19 @@ function stylize(str, style) {
       'green'     : ['<span style="color:green;">',   '</span>'],
       'magenta'   : ['<span style="color:magenta;">', '</span>'],
       'red'       : ['<span style="color:red;">',     '</span>'],
-      'yellow'    : ['<span style="color:yellow;">',  '</span>']
+      'yellow'    : ['<span style="color:yellow;">',  '</span>'],
+      //background colors
+      //grayscale
+      'whiteBG'     : ['<span style="background-color:white;">',   '</span>'],
+      'greyBG'      : ['<span style="background-color:gray;">',    '</span>'],
+      'blackBG'     : ['<span style="background-color:black;">',   '</span>'],
+      //colors
+      'blueBG'      : ['<span style="background-color:blue;">',    '</span>'],
+      'cyanBG'      : ['<span style="background-color:cyan;">',    '</span>'],
+      'greenBG'     : ['<span style="background-color:green;">',   '</span>'],
+      'magentaBG'   : ['<span style="background-color:magenta;">', '</span>'],
+      'redBG'       : ['<span style="background-color:red;">',     '</span>'],
+      'yellowBG'    : ['<span style="background-color:yellow;">',  '</span>']
     };
   } else if (exports.mode === 'none') {
     return str+'';
@@ -154,7 +180,7 @@ function applyTheme(theme) {
 //
 // Iterate through all default styles and colors
 //
-var x = ['bold', 'underline', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+var x = ['bold', 'underline', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta', 'greyBG', 'blackBG', 'yellowBG', 'redBG', 'greenBG', 'blueBG', 'whiteBG', 'cyanBG', 'magentaBG'];
 x.forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
