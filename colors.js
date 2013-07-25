@@ -72,6 +72,7 @@ function stylize(str, style) {
       'bold'      : ['\x1B[1m',  '\x1B[22m'],
       'italic'    : ['\x1B[3m',  '\x1B[23m'],
       'underline' : ['\x1B[4m',  '\x1B[24m'],
+      'blink'     : ['\x1B[5m',  '\x1B[25m'],
       'inverse'   : ['\x1B[7m',  '\x1B[27m'],
       'strikethrough' : ['\x1B[9m',  '\x1B[29m'],
       //grayscale
@@ -92,6 +93,7 @@ function stylize(str, style) {
       'bold'      : ['<b>',  '</b>'],
       'italic'    : ['<i>',  '</i>'],
       'underline' : ['<u>',  '</u>'],
+      'blink'     : ['<span style="text-decoration: blink;">', '</span>'],
       'inverse'   : ['<span style="background-color:black;color:white;">',  '</span>'],
       'strikethrough' : ['<del>',  '</del>'],
       //grayscale
@@ -154,7 +156,7 @@ function applyTheme(theme) {
 //
 // Iterate through all default styles and colors
 //
-var x = ['bold', 'underline', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+var x = ['bold', 'underline', 'blink', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
 x.forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
