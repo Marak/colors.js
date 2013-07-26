@@ -56,7 +56,7 @@ var addProperty = function (color, func) {
       enumerable: false
     });
   } else {
-      String.prototype.__defineGetter__(color, func);
+    String.prototype.__defineGetter__(color, func);
   }
 };
 
@@ -133,7 +133,7 @@ function stylize(str, style) {
       'yellowBG'    : ['<span style="background-color:yellow;">',  '</span>']
     };
   } else if (exports.mode === 'none') {
-    return str+'';
+    return str + '';
   } else {
     console.log('unsupported mode, try "browser", "console" or "none"');
   }
@@ -160,14 +160,14 @@ function applyTheme(theme) {
     else {
       if (typeof(theme[prop]) === 'string') {
         addProperty(prop, function () {
-            return exports[theme[prop]](this);
+          return exports[theme[prop]](this);
         });
       }
       else {
         addProperty(prop, function () {
           var ret = this;
           for (var t = 0; t < theme[prop].length; t++) {
-              ret = exports[theme[prop][t]](ret);
+            ret = exports[theme[prop][t]](ret);
           }
           return ret;
         });
@@ -314,20 +314,20 @@ function zalgo(text, options) {
       result = result + text[l];
       counts = {"up" : 0, "down" : 0, "mid" : 0};
       switch (options.size) {
-        case 'mini':
-          counts.up = randomNumber(8);
-          counts.min = randomNumber(2);
-          counts.down = randomNumber(8);
+      case 'mini':
+        counts.up = randomNumber(8);
+        counts.min = randomNumber(2);
+        counts.down = randomNumber(8);
         break;
-        case 'maxi':
-          counts.up = randomNumber(16) + 3;
-          counts.min = randomNumber(4) + 1;
-          counts.down = randomNumber(64) + 3;
+      case 'maxi':
+        counts.up = randomNumber(16) + 3;
+        counts.min = randomNumber(4) + 1;
+        counts.down = randomNumber(64) + 3;
         break;
-        default:
-          counts.up = randomNumber(8) + 1;
-          counts.mid = randomNumber(6) / 2;
-          counts.down = randomNumber(8) + 1;
+      default:
+        counts.up = randomNumber(8) + 1;
+        counts.mid = randomNumber(6) / 2;
+        counts.down = randomNumber(8) + 1;
         break;
       }
 
