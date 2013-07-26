@@ -9,8 +9,8 @@ console.log('Chains are also cool.'.bold.italic.underline.red); // styles not wi
 //console.log('zalgo time!'.zalgo);
 console.log(test.stripColors);
 console.log("a".grey + " b".black);
-
 console.log("Zebras are so fun!".zebra);
+console.log('background color attack!'.black.whiteBG)
 
 //
 // Remark: .strikethrough may not work with Mac OS Terminal App
