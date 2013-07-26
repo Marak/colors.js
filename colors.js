@@ -115,6 +115,7 @@ function stylize(str, style) {
       'bold'      : ['\033[1m',  '\033[22m'],
       'italic'    : ['\033[3m',  '\033[23m'],
       'underline' : ['\033[4m',  '\033[24m'],
+      'blink'     : ['\x1B[5m',  '\x1B[25m'],
       'inverse'   : ['\033[7m',  '\033[27m'],
       //grayscale
       'white'     : ['\033[37m', '\033[39m'],
@@ -134,6 +135,7 @@ function stylize(str, style) {
       'bold'      : ['<b>',  '</b>'],
       'italic'    : ['<i>',  '</i>'],
       'underline' : ['<u>',  '</u>'],
+      'blink'     : ['<span style="text-decoration: blink;">', '</span>'],
       'inverse'   : ['<span style="background-color:black;color:white;">',  '</span>'],
       //grayscale
       'white'     : ['<span style="color:white;">',   '</span>'],
