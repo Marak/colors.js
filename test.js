@@ -1,12 +1,6 @@
 var assert = require('assert'),
     colors = require('./colors');
 
-// 
-// This is a pretty nice example on how tests shouldn't be written. However,
-// it's more about API stability than about really testing it (although it's
-// a pretty complete test suite).
-//
-
 var s = 'string';
 
 function a(s, code) {
@@ -23,10 +17,9 @@ function aE(s, color, code) {
 
 function h(s, color) {
   return '<span style="color:' + color + ';">' + s + '</span>';
-  // that's pretty dumb approach to testing it
 }
 
-var stylesColors = ['white', 'grey', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
+var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 
 colors.mode = 'console';
