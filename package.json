@@ -1,7 +1,7 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console like what",
-    "version": "0.6.0-1",
+    "version": "0.6.1",
     "author": "Marak Squires",
     "homepage": "https://github.com/Marak/colors.js",
     "bugs": "https://github.com/Marak/colors.js/issues",
