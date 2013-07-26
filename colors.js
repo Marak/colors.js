@@ -56,7 +56,7 @@ var addProperty = function (color, func) {
 // Iterate through all default styles and colors
 //
 
-var x = ['bold', 'underline', 'blink', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+var x = ['bold', 'underline', 'blink', 'strikethrough', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta', 'greyBG', 'blackBG', 'yellowBG', 'redBG', 'greenBG', 'blueBG', 'whiteBG', 'cyanBG', 'magentaBG'];
 x.forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
@@ -117,17 +117,31 @@ function stylize(str, style) {
       'underline' : ['\033[4m',  '\033[24m'],
       'blink'     : ['\x1B[5m',  '\x1B[25m'],
       'inverse'   : ['\033[7m',  '\033[27m'],
+      'strikethrough' : ['\x1B[9m',  '\x1B[29m'],
+      //text colors
       //grayscale
-      'white'     : ['\033[37m', '\033[39m'],
-      'grey'      : ['\033[90m', '\033[39m'],
-      'black'     : ['\033[30m', '\033[39m'],
+      'white'     : ['\x1B[37m', '\x1B[39m'],
+      'grey'      : ['\x1B[90m', '\x1B[39m'],
+      'black'     : ['\x1B[30m', '\x1B[39m'],
       //colors
-      'blue'      : ['\033[34m', '\033[39m'],
-      'cyan'      : ['\033[36m', '\033[39m'],
-      'green'     : ['\033[32m', '\033[39m'],
-      'magenta'   : ['\033[35m', '\033[39m'],
-      'red'       : ['\033[31m', '\033[39m'],
-      'yellow'    : ['\033[33m', '\033[39m']
+      'blue'      : ['\x1B[34m', '\x1B[39m'],
+      'cyan'      : ['\x1B[36m', '\x1B[39m'],
+      'green'     : ['\x1B[32m', '\x1B[39m'],
+      'magenta'   : ['\x1B[35m', '\x1B[39m'],
+      'red'       : ['\x1B[31m', '\x1B[39m'],
+      'yellow'    : ['\x1B[33m', '\x1B[39m'],
+      //background colors
+      //grayscale
+      'whiteBG'     : ['\x1B[47m', '\x1B[49m'],
+      'greyBG'      : ['\x1B[49;5;8m', '\x1B[49m'],
+      'blackBG'     : ['\x1B[40m', '\x1B[49m'],
+      //colors
+      'blueBG'      : ['\x1B[44m', '\x1B[49m'],
+      'cyanBG'      : ['\x1B[46m', '\x1B[49m'],
+      'greenBG'     : ['\x1B[42m', '\x1B[49m'],
+      'magentaBG'   : ['\x1B[45m', '\x1B[49m'],
+      'redBG'       : ['\x1B[41m', '\x1B[49m'],
+      'yellowBG'    : ['\x1B[43m', '\x1B[49m']
     };
   } else if (exports.mode == 'browser') {
     var styles = {
@@ -137,9 +151,11 @@ function stylize(str, style) {
       'underline' : ['<u>',  '</u>'],
       'blink'     : ['<span style="text-decoration: blink;">', '</span>'],
       'inverse'   : ['<span style="background-color:black;color:white;">',  '</span>'],
+      'strikethrough' : ['<del>',  '</del>'],
+      //text colors
       //grayscale
       'white'     : ['<span style="color:white;">',   '</span>'],
-      'grey'      : ['<span style="color:grey;">',    '</span>'],
+      'grey'      : ['<span style="color:gray;">',    '</span>'],
       'black'     : ['<span style="color:black;">',   '</span>'],
       //colors
       'blue'      : ['<span style="color:blue;">',    '</span>'],
@@ -147,7 +163,19 @@ function stylize(str, style) {
       'green'     : ['<span style="color:green;">',   '</span>'],
       'magenta'   : ['<span style="color:magenta;">', '</span>'],
       'red'       : ['<span style="color:red;">',     '</span>'],
-      'yellow'    : ['<span style="color:yellow;">',  '</span>']
+      'yellow'    : ['<span style="color:yellow;">',  '</span>'],
+      //background colors
+      //grayscale
+      'whiteBG'     : ['<span style="background-color:white;">',   '</span>'],
+      'greyBG'      : ['<span style="background-color:gray;">',    '</span>'],
+      'blackBG'     : ['<span style="background-color:black;">',   '</span>'],
+      //colors
+      'blueBG'      : ['<span style="background-color:blue;">',    '</span>'],
+      'cyanBG'      : ['<span style="background-color:cyan;">',    '</span>'],
+      'greenBG'     : ['<span style="background-color:green;">',   '</span>'],
+      'magentaBG'   : ['<span style="background-color:magenta;">', '</span>'],
+      'redBG'       : ['<span style="background-color:red;">',     '</span>'],
+      'yellowBG'    : ['<span style="background-color:yellow;">',  '</span>']
     };
   } else if (exports.mode == 'none') {
     return str;
