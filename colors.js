@@ -56,7 +56,7 @@ var addProperty = function (color, func) {
 // Iterate through all default styles and colors
 //
 
-var x = ['bold', 'underline', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
+var x = ['bold', 'underline', 'blink', 'italic', 'inverse', 'grey', 'black', 'yellow', 'red', 'green', 'blue', 'white', 'cyan', 'magenta'];
 x.forEach(function (style) {
 
   // __defineGetter__ at the least works in more browsers
