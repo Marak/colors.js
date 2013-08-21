@@ -50,13 +50,11 @@ var addProperty = function (color, func) {
   };
 
   if (Object.defineProperty) {
-    if(!String.prototype.hasOwnProperty(color)) {
-      Object.defineProperty(String.prototype, color, {
-        get : func,
-        configurable: true,
-        enumerable: false
-      });
-    }
+    Object.defineProperty(String.prototype, color, {
+      get : func,
+      configurable: true,
+      enumerable: false
+    });
   } else {
     String.prototype.__defineGetter__(color, func);
   }
