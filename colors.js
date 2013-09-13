@@ -38,7 +38,7 @@ if (!isHeadless) {
   var colors = exports;
   exports.mode = "browser";
 } else {
-  exports.mode = "console";
+  exports.mode = process.env.COLORS_JS_MODE || "console";
 }
 
 //
