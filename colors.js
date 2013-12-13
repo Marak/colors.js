@@ -41,6 +41,7 @@ if (!isHeadless) {
   exports.mode = "console";
 }
 
+
 //
 // Prototypes the string object to have additional method calls that add terminal colors
 //
@@ -54,6 +55,11 @@ var addProperty = function (color, func) {
 function stylize(str, style) {
 
   var styles;
+
+  if (exports.mode === 'auto') {
+    var isStdoutTty = require('tty').isatty(process.stdout.fd);
+    exports.mode = isStdoutTty ? 'console' : 'none';
+  }
 
   if (exports.mode === 'console') {
     styles = {
