@@ -1,5 +1,42 @@
 var assert = require('assert'),
-    colors = require('./colors');
+    colors = require('./colors.umd'),
+    safe = require("./safe")
+
+console.log(safe.green('hello')); // outputs green text
+console.log(safe.red(safe.underline('i like cake and pies'))); // outputs red underlined text
+console.log(safe.inverse('inverse the color')); // inverses the color
+console.log(safe.rainbow('OMG Rainbows!')); // rainbow (ignores spaces)
+
+console.log('')
+
+
+console.log('hello'.green); // outputs green text
+console.log('i like cake and pies'.underline.red) // outputs red underlined text
+console.log('inverse the color'.inverse); // inverses the color
+console.log('OMG Rainbows!'.rainbow); // rainbow (ignores spaces)
+
+colors.setTheme({
+  silly: 'rainbow',
+  input: 'grey',
+  verbose: 'cyan',
+  prompt: 'grey',
+  info: 'green',
+  data: 'grey',
+  help: 'cyan',
+  warn: 'yellow',
+  debug: 'blue',
+  error: 'red'
+});
+
+// outputs red text
+console.log("this is an error".error);
+
+// outputs yellow text
+console.log("this is a warning".warn);
+
+
+
+
 
 var s = 'string';
 

@@ -1,3 +1,4 @@
+!function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var o;"undefined"!=typeof window?o=window:"undefined"!=typeof global?o=global:"undefined"!=typeof self&&(o=self),o.colors=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 /*
 colors.js
 
@@ -26,6 +27,65 @@ THE SOFTWARE.
 
 */
 
+var safeColors = _dereq_('./safe');
+
+safeColors.transforms.forEach(function(transform) {
+  addToStringPrototype(transform, safeColors[transform]);
+});
+
+module.exports = safeColors;
+
+var originalAddSequencer = module.exports.addSequencer;
+module.exports.addSequencer = function(name) {
+    originalAddSequencer.apply(this,arguments)
+    addToStringPrototype(name, module.exports[name])
+};
+
+function addToStringPrototype(name, fn) {
+    String.prototype.__defineGetter__(name, function() {
+        return fn(this)
+    });
+}
+
+
+
+var stringPrototypeBlacklist = [
+    '__defineGetter__', '__defineSetter__', '__lookupGetter__', '__lookupSetter__', 'charAt', 'constructor',
+    'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString', 'toString', 'valueOf', 'charCodeAt',
+    'indexOf', 'lastIndexof', 'length', 'localeCompare', 'match', 'replace', 'search', 'slice', 'split', 'substring',
+    'toLocaleLowerCase', 'toLocaleUpperCase', 'toLowerCase', 'toUpperCase', 'trim', 'trimLeft', 'trimRight'
+];
+
+var originalSetTheme = module.exports.setTheme;
+module.exports.setTheme = function (themeArgument) {
+
+    try {
+      if (typeof theme === 'string') {
+        var theme = _dereq_(themeArgument);
+      } else {
+        var theme = themeArgument;
+      }
+
+      var themePropertiesToSet = []
+      for(var prop in theme) {
+        if (stringPrototypeBlacklist.indexOf(prop) === -1) {
+          themePropertiesToSet[prop] = theme[prop]
+        } else {
+          console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
+        }
+      }
+
+      originalSetTheme(theme)
+      for(var prop in theme) {
+        addToStringPrototype(prop, module.exports[prop])
+      }
+
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+};
+},{"./safe":2}],2:[function(_dereq_,module,exports){
 var isHeadless = false;
 
 if (typeof module !== 'undefined') {
@@ -48,7 +108,6 @@ var addProperty = function (color, func) {
   exports[color] = function (str) {
     return func.apply(str);
   };
-  String.prototype.__defineGetter__(color, func);
 };
 
 function stylize(str, style) {
@@ -131,22 +190,7 @@ function stylize(str, style) {
 
 function applyTheme(theme) {
 
-  //
-  // Remark: This is a list of methods that exist
-  // on String that you should not overwrite.
-  //
-  var stringPrototypeBlacklist = [
-    '__defineGetter__', '__defineSetter__', '__lookupGetter__', '__lookupSetter__', 'charAt', 'constructor',
-    'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString', 'toString', 'valueOf', 'charCodeAt',
-    'indexOf', 'lastIndexof', 'length', 'localeCompare', 'match', 'replace', 'search', 'slice', 'split', 'substring',
-    'toLocaleLowerCase', 'toLocaleUpperCase', 'toLowerCase', 'toUpperCase', 'trim', 'trimLeft', 'trimRight'
-  ];
-
   Object.keys(theme).forEach(function (prop) {
-    if (stringPrototypeBlacklist.indexOf(prop) !== -1) {
-      console.log('warn: '.red + ('String.prototype' + prop).magenta + ' is probably something you don\'t want to override. Ignoring style name');
-    }
-    else {
       if (typeof(theme[prop]) === 'string') {
         addProperty(prop, function () {
           return exports[theme[prop]](this);
@@ -161,7 +205,6 @@ function applyTheme(theme) {
           return ret;
         });
       }
-    }
   });
 }
 
@@ -215,14 +258,9 @@ exports.addSequencer('zebra', function (letter, i, exploded) {
 
 exports.setTheme = function (theme) {
   if (typeof theme === 'string') {
-    try {
-      exports.themes[theme] = require(theme);
-      applyTheme(exports.themes[theme]);
-      return exports.themes[theme];
-    } catch (err) {
-      console.log(err);
-      return err;
-    }
+    exports.themes[theme] = _dereq_(theme);
+    applyTheme(exports.themes[theme]);
+    return exports.themes[theme];
   } else {
     applyTheme(theme);
   }
@@ -339,4 +377,9 @@ function zalgo(text, options) {
 // don't summon zalgo
 addProperty('zalgo', function () {
   return zalgo(this);
+});
+
+exports.transforms = x.concat(['rainbow', 'zebra', 'stripColors','zalgo'])
+},{}]},{},[1])
+(1)
 });

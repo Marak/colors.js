@@ -13,5 +13,8 @@
     "engines": {
         "node": ">=0.1.90"
     },
-    "main": "colors"
+    "devDependencies": {
+        "build-modules": "1.0.8"
+    },
+    "main": "colors.umd"
 }
