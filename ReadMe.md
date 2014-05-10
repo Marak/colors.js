@@ -28,7 +28,7 @@
 ## Usage
 
 ``` js
-var colors = require('./colors');
+var colors = require('colors');
 
 console.log('hello'.green); // outputs green text
 console.log('i like cake and pies'.underline.red) // outputs red underlined text
