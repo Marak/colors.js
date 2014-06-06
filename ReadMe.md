@@ -34,6 +34,10 @@ console.log('hello'.green); // outputs green text
 console.log('i like cake and pies'.underline.red) // outputs red underlined text
 console.log('inverse the color'.inverse); // inverses the color
 console.log('OMG Rainbows!'.rainbow); // rainbow (ignores spaces)
+
+console.log('It's T-Mobile Magenta!'.color(0xea,0x0a,0x8e)) // supports RGB
+console.log('It's T-Mobile Magenta!'.color("#ea0a8e")) // also supports HEX codes
+
 ```
 
 # Creating Custom themes

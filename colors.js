@@ -51,6 +51,32 @@ var addProperty = function (color, func) {
   String.prototype.__defineGetter__(color, func);
 };
 
+//
+// Add custom color support
+// Accepts R,G,B or hex color
+//
+String.prototype.color = function(r,g,b){
+  // if g is undefined, assume r is a hex value
+  if (g === undefined){
+    var hex = parseInt(r, 16);
+    r = hex >> 16;
+    g = hex >> 8 & 0xff;
+    b = hex & 0xff;
+  }
+  return "\x1B[38;2;"+r+";"+g+";"+b+"m" + this + '\x1B[39m';
+};
+
+String.prototype.bgcolor = function(r,g,b){
+  // if g is undefined, assume r is a hex value
+  if (g === undefined){
+    var hex = parseInt(r, 16);
+    r = hex >> 16;
+    g = hex >> 8 & 0xff;
+    b = hex & 0xff;
+  }
+  return "\x1B[48;2;"+r+";"+g+";"+b+"m" + this + '\x1B[49m';
+};
+
 function stylize(str, style) {
 
   var styles;
