@@ -7,12 +7,8 @@
 
     npm install colors
 
-## colors and styles!
+## colors
 
-- bold
-- italic
-- underline
-- inverse
 - yellow
 - cyan
 - white
@@ -24,6 +20,13 @@
 - rainbow
 - zebra
 - random
+
+## styles
+
+- bold
+- italic
+- underline
+- inverse
 
 ## Usage
 
