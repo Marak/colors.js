@@ -100,7 +100,7 @@ node myapp.js --no-color
 
 ## Console.log [string substitution](http://nodejs.org/docs/latest/api/console.html#console_console_log_data)
 
-```
+```js
 var name = 'Marak';
 console.log(chalk.green('Hello %s'), name);
 // outputs -> 'Hello Marak'
