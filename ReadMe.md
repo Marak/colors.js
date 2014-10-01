@@ -4,10 +4,9 @@
 
 <img src="https://github.com/Marak/colors.js/raw/master/screenshots/colors.png"/>
 
-
 ## Installation
 
-    npm install colors -g
+    npm install colors
 
 ## colors and styles!
 
@@ -64,7 +63,7 @@ By popular demand, `colors` now ships with two types of usages!
 The super nifty way
 
 ```js
-require('colors');
+var colors = require('colors');
 
 console.log('hello'.green); // outputs green text
 console.log('i like cake and pies'.underline.red) // outputs red underlined text
