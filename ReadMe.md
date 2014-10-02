@@ -102,7 +102,7 @@ node myapp.js --no-color
 
 ```js
 var name = 'Marak';
-console.log(chalk.green('Hello %s'), name);
+console.log(colors.green('Hello %s'), name);
 // outputs -> 'Hello Marak'
 ```
 
