@@ -45,6 +45,6 @@ assert.equal(s, 'string');
 
 colors.setTheme({error:'red'});
 
-assert.equal(typeof("astring".red),'string');
-assert.equal(typeof("astring".error),'string');
+assert.equal(typeof('astring'.red),'string');
+assert.equal(typeof('astring'.error),'string');
 

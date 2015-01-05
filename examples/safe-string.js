@@ -1,25 +1,25 @@
 var colors = require('../safe');
 
-console.log(colors.yellow("First some yellow text"));
+console.log(colors.yellow('First some yellow text'));
 
-console.log(colors.yellow.underline("Underline that text"));
+console.log(colors.yellow.underline('Underline that text'));
 
-console.log(colors.red.bold("Make it bold and red"));
+console.log(colors.red.bold('Make it bold and red'));
 
-console.log(colors.rainbow("Double Raindows All Day Long"))
+console.log(colors.rainbow('Double Raindows All Day Long'))
 
-console.log(colors.trap("Drop the bass"))
+console.log(colors.trap('Drop the bass'))
 
-console.log(colors.rainbow(colors.trap("DROP THE RAINBOW BASS")));
+console.log(colors.rainbow(colors.trap('DROP THE RAINBOW BASS')));
 
 console.log(colors.bold.italic.underline.red('Chains are also cool.')); // styles not widely supported
 
 
 console.log(colors.green('So ') + colors.underline('are') + ' ' + colors.inverse('inverse') + colors.yellow.bold(' styles! ')); // styles not widely supported
 
-console.log(colors.zebra("Zebras are so fun!"));
+console.log(colors.zebra('Zebras are so fun!'));
 
-console.log("This is " + colors.strikethrough("not") + " fun.");
+console.log('This is ' + colors.strikethrough('not') + ' fun.');
 
 
 console.log(colors.black.bgWhite('Background color attack!'));
@@ -47,13 +47,13 @@ colors.setTheme({
 });
 
 // outputs red text
-console.log(colors.error("this is an error"));
+console.log(colors.error('this is an error'));
 
 // outputs yellow text
-console.log(colors.warn("this is a warning"));
+console.log(colors.warn('this is a warning'));
 
 // outputs grey text
-console.log(colors.input("this is an input"));
+console.log(colors.input('this is an input'));
 
 
 // console.log('Generic logging theme as file'.green.bold.underline);
@@ -62,15 +62,15 @@ console.log(colors.input("this is an input"));
 colors.setTheme(__dirname + '/../themes/generic-logging.js');
 
 // outputs red text
-console.log(colors.error("this is an error"));
+console.log(colors.error('this is an error'));
 
 // outputs yellow text
-console.log(colors.warn("this is a warning"));
+console.log(colors.warn('this is a warning'));
 
 // outputs grey text
-console.log(colors.input("this is an input"));
+console.log(colors.input('this is an input'));
 
-// console.log(colors.zalgo("Don't summon him"))
+// console.log(colors.zalgo('Don\'t summon him'))
 
 
 
