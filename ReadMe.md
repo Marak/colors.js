@@ -2,7 +2,7 @@
 
 ## get color and style in your node.js console
 
-<img src="https://github.com/Marak/colors.js/raw/master/screenshots/colors.png"/>
+<img src='https://github.com/Marak/colors.js/raw/master/screenshots/colors.png'/>
 
 ## Installation
 
@@ -128,10 +128,10 @@ colors.setTheme({
 });
 
 // outputs red text
-console.log("this is an error".error);
+console.log('this is an error'.error);
 
 // outputs yellow text
-console.log("this is a warning".warn);
+console.log('this is a warning'.warn);
 ```
 
 ### Using string safe API
@@ -158,10 +158,10 @@ colors.setTheme({
 });
 
 // outputs red text
-console.log(colors.error("this is an error"));
+console.log(colors.error('this is an error'));
 
 // outputs yellow text
-console.log(colors.warn("this is a warning"));
+console.log(colors.warn('this is a warning'));
 ```
 
 *Protip: There is a secret undocumented style in `colors`. If you find the style you can summon him.*
