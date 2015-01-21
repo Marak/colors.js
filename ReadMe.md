@@ -162,6 +162,18 @@ console.log(colors.error("this is an error"));
 
 // outputs yellow text
 console.log(colors.warn("this is a warning"));
+
+```
+
+You can also combine them:
+
+```javascript
+colors.setTheme({
+  link: ['underline', 'blue']
+});
+
+// outputs underlined blue text
+console.log(colors.info('Listening on ') + colors.link('http://0.0.0.0:' + port)  );
 ```
 
 *Protip: There is a secret undocumented style in `colors`. If you find the style you can summon him.*
