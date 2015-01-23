@@ -21,6 +21,7 @@
     "files": [
         "examples",
         "lib",
+        "LICENSE",
         "safe.js",
         "themes"
     ]
