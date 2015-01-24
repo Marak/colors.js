@@ -17,12 +17,5 @@
     "engines": {
         "node": ">=0.1.90"
     },
-    "main": "lib",
-    "files": [
-        "examples",
-        "lib",
-        "LICENSE",
-        "safe.js",
-        "themes"
-    ]
+    "main": "./lib/index"
 }
