@@ -25,8 +25,6 @@
 
 ### background colors
 
-
-
   - bgBlack
   - bgRed
   - bgGreen
@@ -173,7 +171,7 @@ colors.setTheme({
 });
 
 // outputs underlined blue text
-console.log(colors.info('Listening on ') + colors.link('http://0.0.0.0:' + port)  );
+console.log(colors.info('Listening on ') + colors.link('http://0.0.0.0:' + port));
 ```
 
 *Protip: There is a secret undocumented style in `colors`. If you find the style you can summon him.*
