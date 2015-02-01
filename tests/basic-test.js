@@ -48,3 +48,7 @@ colors.setTheme({error:'red'});
 assert.equal(typeof("astring".red),'string');
 assert.equal(typeof("astring".error),'string');
 
+colors.enabled = false;
+
+assert.equal('some string'.red, 'some string');
+assert.equal(colors.red('some string'), 'some string');
