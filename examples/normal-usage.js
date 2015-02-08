@@ -12,6 +12,8 @@ console.log("Drop the bass".trap)
 
 console.log("DROP THE RAINBOW BASS".trap.rainbow)
 
+console.log("Show this in neon".neon("neonRed", "blue", "neonYellow"))
+
 
 console.log('Chains are also cool.'.bold.italic.underline.red); // styles not widely supported
 

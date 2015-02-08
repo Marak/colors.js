@@ -12,8 +12,9 @@ console.log(colors.trap("Drop the bass"))
 
 console.log(colors.rainbow(colors.trap("DROP THE RAINBOW BASS")));
 
-console.log(colors.bold.italic.underline.red('Chains are also cool.')); // styles not widely supported
+console.log(colors.neon("Show this in neon", "neonRed", "blue", "neonYellow"));
 
+console.log(colors.bold.italic.underline.red('Chains are also cool.')); // styles not widely supported
 
 console.log(colors.green('So ') + colors.underline('are') + ' ' + colors.inverse('inverse') + colors.yellow.bold(' styles! ')); // styles not widely supported
 
