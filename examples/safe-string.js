@@ -6,7 +6,7 @@ console.log(colors.yellow.underline("Underline that text"));
 
 console.log(colors.red.bold("Make it bold and red"));
 
-console.log(colors.rainbow("Double Raindows All Day Long"))
+console.log(colors.rainbow("Double Rainbows All Day Long"))
 
 console.log(colors.trap("Drop the bass"))
 

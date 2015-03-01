@@ -2,7 +2,7 @@
 
 ## get color and style in your node.js console
 
-<img src="https://github.com/Marak/colors.js/raw/master/screenshots/colors.png"/>
+![colors screenshot](screenshots/colors.png)
 
 ## Installation
 
