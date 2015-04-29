@@ -1,8 +1,8 @@
-# colors.js
+# colors.js [![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
 
 ## get color and style in your node.js console
 
-<img src="https://github.com/Marak/colors.js/raw/master/screenshots/colors.png"/>
+![Demo](https://raw.githubusercontent.com/Marak/colors.js/master/screenshots/colors.png)
 
 ## Installation
 
@@ -24,8 +24,6 @@
   - grey
 
 ### background colors
-
-
 
   - bgBlack
   - bgRed
@@ -162,6 +160,18 @@ console.log(colors.error("this is an error"));
 
 // outputs yellow text
 console.log(colors.warn("this is a warning"));
+
+```
+
+You can also combine them:
+
+```javascript
+colors.setTheme({
+  link: ['underline', 'blue']
+});
+
+// outputs underlined blue text
+console.log(colors.info('Listening on ') + colors.link('http://0.0.0.0:' + port));
 ```
 
 *Protip: There is a secret undocumented style in `colors`. If you find the style you can summon him.*
