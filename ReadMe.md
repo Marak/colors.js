@@ -22,6 +22,16 @@
   - white
   - gray
   - grey
+  
+### bright text colors
+  
+  - brightRed
+  - brightGreen
+  - brightYellow
+  - brightBlue
+  - brightMagenta
+  - brightCyan
+  - brightWhite
 
 ### background colors
 
@@ -33,6 +43,18 @@
   - bgMagenta
   - bgCyan
   - bgWhite
+  - bgGray
+  - bgGrey
+  
+### bright background colors
+
+  - bgBrightRed
+  - bgBrightGreen
+  - bgBrightYellow
+  - bgBrightBlue
+  - bgBrightMagenta
+  - bgBrightCyan
+  - bgBrightWhite
 
 ### styles
 
