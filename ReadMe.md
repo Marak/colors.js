@@ -166,12 +166,13 @@ console.log(colors.warn("this is a warning"));
 You can also combine them:
 
 ```javascript
+var colors = require('colors');
+
 colors.setTheme({
-  link: ['underline', 'blue']
+  custom: ['red', 'underline']
 });
 
-// outputs underlined blue text
-console.log(colors.info('Listening on ') + colors.link('http://0.0.0.0:' + port));
+console.log('test'.custom);
 ```
 
 *Protip: There is a secret undocumented style in `colors`. If you find the style you can summon him.*
