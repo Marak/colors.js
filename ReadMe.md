@@ -163,7 +163,7 @@ console.log(colors.warn("this is a warning"));
 
 ```
 
-You can also combine them:
+### Combining Colors
 
 ```javascript
 var colors = require('colors');
