@@ -6,4 +6,4 @@
 //
 //
 var colors = require('./lib/colors');
-module['exports'] = colors;
+module.exports = colors;
