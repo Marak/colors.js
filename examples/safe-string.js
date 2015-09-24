@@ -6,9 +6,9 @@ console.log(colors.yellow.underline("Underline that text"));
 
 console.log(colors.red.bold("Make it bold and red"));
 
-console.log(colors.rainbow("Double Raindows All Day Long"))
+console.log(colors.rainbow("Double Raindows All Day Long"));
 
-console.log(colors.trap("Drop the bass"))
+console.log(colors.trap("Drop the bass"));
 
 console.log(colors.rainbow(colors.trap("DROP THE RAINBOW BASS")));
 
@@ -23,10 +23,10 @@ console.log("This is " + colors.strikethrough("not") + " fun.");
 
 
 console.log(colors.black.bgWhite('Background color attack!'));
-console.log(colors.random('Use random styles on everything!'))
+console.log(colors.random('Use random styles on everything!'));
 console.log(colors.america('America, Heck Yeah!'));
 
-console.log('Setting themes is useful')
+console.log('Setting themes is useful');
 
 //
 // Custom themes
@@ -71,6 +71,3 @@ console.log(colors.warn("this is a warning"));
 console.log(colors.input("this is an input"));
 
 // console.log(colors.zalgo("Don't summon him"))
-
-
-
