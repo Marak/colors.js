@@ -1,4 +1,4 @@
-module['exports'] = {
+module.exports = {
   silly: 'rainbow',
   input: 'grey',
   verbose: 'cyan',
