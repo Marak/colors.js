@@ -30,6 +30,7 @@ assert.equal(s.strikethrough, '\x1B[9m' + s + '\x1B[29m');
 assert.equal(s.inverse, '\x1B[7m' + s + '\x1B[27m');
 
 assert.ok(s.rainbow);
+assert.ok(s.neon("red", "blue", "green"))
 
 aE(s, 'white', 37);
 aE(s, 'grey', 90);
