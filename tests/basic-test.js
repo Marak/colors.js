@@ -19,7 +19,7 @@ function h(s, color) {
   return '<span style="color:' + color + ';">' + s + '</span>';
 }
 
-var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
+var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow', 'orange'];
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 
 colors.mode = 'console';
@@ -47,4 +47,3 @@ colors.setTheme({error:'red'});
 
 assert.equal(typeof("astring".red),'string');
 assert.equal(typeof("astring".error),'string');
-
