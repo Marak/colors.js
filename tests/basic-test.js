@@ -48,3 +48,8 @@ colors.setTheme({error:'red'});
 assert.equal(typeof("astring".red),'string');
 assert.equal(typeof("astring".error),'string');
 
+assert.equal(colors.rainbow('a', 0), '\x1B[31m' + 'a' + '\x1B[39m');
+assert.equal(colors.rainbow('a', 1), '\x1B[33m' + 'a' + '\x1B[39m');
+assert.equal(colors.rainbow('a', 2), '\x1B[32m' + 'a' + '\x1B[39m');
+assert.equal(colors.rainbow('a', 3), '\x1B[34m' + 'a' + '\x1B[39m');
+assert.equal(colors.rainbow('a', 4), '\x1B[35m' + 'a' + '\x1B[39m');
