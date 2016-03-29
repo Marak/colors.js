@@ -31,6 +31,12 @@ assert.equal(s.inverse, '\x1B[7m' + s + '\x1B[27m');
 
 assert.ok(s.rainbow);
 
+assert.ok(colors.stylize(s, "rainbow"))
+assert.ok(colors.stylize(s, "america"))
+assert.ok(colors.stylize(s, "zebra"))
+assert.ok(colors.stylize(s, "trap"))
+assert.ok(colors.stylize(s, "random"))
+
 aE(s, 'white', 37);
 aE(s, 'grey', 90);
 aE(s, 'black', 30);
@@ -47,4 +53,3 @@ colors.setTheme({error:'red'});
 
 assert.equal(typeof("astring".red),'string');
 assert.equal(typeof("astring".error),'string');
-
