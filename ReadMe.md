@@ -1,6 +1,15 @@
+# THIS IS A FORK, ADDS JETBRAINS IDE COMPATIBILITY
+
 > This is a fork of the original "colors" module that fixes an issue with color output in JetBrains
- IDE's. A pull request has been made on the original repo but has not yet been merged. While we wait
- for merge, this repo will exist to allow a drop-in replacement with JetBrains support.
+ IDE's. A pull request (https://github.com/Marak/colors.js/pull/150) has been made on the original
+ repo but has not yet been merged. While we wait for merge, this repo will exist to allow a drop-in
+ replacement with JetBrains support.
+ 
+You can use this forked version of colors as a drop-in replacement via:
+
+```bash
+npm install irrelon-colors
+```
 
 # colors.js [![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
 
