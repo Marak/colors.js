@@ -1,3 +1,16 @@
+# THIS IS A FORK, ADDS JETBRAINS IDE COMPATIBILITY
+
+> This is a fork of the original "colors" module that fixes an issue with color output in JetBrains
+ IDE's. A pull request (https://github.com/Marak/colors.js/pull/150) has been made on the original
+ repo but has not yet been merged. While we wait for merge, this repo will exist to allow a drop-in
+ replacement with JetBrains support.
+ 
+You can use this forked version of colors as a drop-in replacement via:
+
+```bash
+npm install irrelon-colors
+```
+
 # colors.js [![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
 
 ## get color and style in your node.js console
@@ -6,7 +19,7 @@
 
 ## Installation
 
-    npm install colors
+    npm install irrelon-colors
 
 ## colors and styles!
 
@@ -61,7 +74,7 @@ By popular demand, `colors` now ships with two types of usages!
 The super nifty way
 
 ```js
-var colors = require('colors');
+var colors = require('irrelon-colors');
 
 console.log('hello'.green); // outputs green text
 console.log('i like cake and pies'.underline.red) // outputs red underlined text
@@ -74,7 +87,7 @@ console.log('Run the trap'.trap); // Drops the bass
 or a slightly less nifty way which doesn't extend `String.prototype`
 
 ```js
-var colors = require('colors/safe');
+var colors = require('irrelon-colors/safe');
 
 console.log(colors.green('hello')); // outputs green text
 console.log(colors.red.underline('i like cake and pies')) // outputs red underlined text
@@ -110,7 +123,7 @@ console.log(colors.green('Hello %s'), name);
 
 ```js
 
-var colors = require('colors');
+var colors = require('irrelon-colors');
 
 colors.setTheme({
   silly: 'rainbow',
@@ -135,7 +148,7 @@ console.log("this is a warning".warn);
 ### Using string safe API
 
 ```js
-var colors = require('colors/safe');
+var colors = require('irrelon-colors/safe');
 
 // set single property
 var error = colors.red;
@@ -166,7 +179,7 @@ console.log(colors.warn("this is a warning"));
 ### Combining Colors
 
 ```javascript
-var colors = require('colors');
+var colors = require('irrelon-colors');
 
 colors.setTheme({
   custom: ['red', 'underline']
