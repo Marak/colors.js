@@ -3,12 +3,12 @@
     "description": "Get colors in your node.js console",
     "version": "1.0.0",
     "author": "Irrelon Software Limited",
-    "homepage": "https://github.com/irrelon/colors.js",
-    "bugs": "https://github.com/irrelon/colors.js/issues",
+    "homepage": "https://github.com/irrelon/irrelon-colors",
+    "bugs": "https://github.com/irrelon/irrelon-colors/issues",
     "keywords": [ "ansi", "terminal", "colors" ],
     "repository": {
         "type": "git",
-        "url": "http://github.com/irrelon/colors.js.git"
+        "url": "http://github.com/irrelon/irrelon-colors.git"
     },
     "license": "MIT",
     "scripts": {
