@@ -21,7 +21,6 @@
   - cyan
   - white
   - gray
-  - grey
 
 ### background colors
 
