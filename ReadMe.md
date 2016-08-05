@@ -84,9 +84,7 @@ console.log(colors.trap('Run the trap')); // Drops the bass
 
 ```
 
-I prefer the first way. Some people seem to be afraid of extending `String.prototype` and prefer the second way. 
-
-If you are writing good code you will never have an issue with the first approach. If you really don't want to touch `String.prototype`, the second usage will not touch `String` native object.
+I prefer the first way. But there are rare cases where editing `String.prototype` can cause problems, and the second way is for those cases. If you really don't want to touch `String.prototype`, the second usage will not touch `String` native object.
 
 ## Disabling Colors
 
