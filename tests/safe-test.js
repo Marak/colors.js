@@ -4,16 +4,16 @@ var assert = require('assert'),
 var s = 'string';
 
 function a(s, code) {
-  return '\x1B[' + code.toString() + 'm' + s + '\x1B[39m';
+    return '\x1B[' + code.toString() + 'm' + s + '\x1B[39m';
 }
 
 function aE(s, color, code) {
-  assert.equal(colors[color](s), a(s, code));
-  assert.equal(colors.strip(s), s);
+    assert.equal(colors[color](s), a(s, code));
+    assert.equal(colors.strip(s), s);
 }
 
 function h(s, color) {
-  return '<span style="color:' + color + ';">' + s + '</span>';
+    return '<span style="color:' + color + ';">' + s + '</span>';
 }
 
 var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
@@ -41,5 +41,5 @@ aE(s, 'yellow', 33);
 assert.equal(s, 'string');
 colors.setTheme({error:'red'});
 
-assert.equal(typeof(colors.red("astring")), 'string');
-assert.equal(typeof(colors.error("astring")), 'string');
+assert.equal(typeof(colors.red('astring')), 'string');
+assert.equal(typeof(colors.error('astring')), 'string');
