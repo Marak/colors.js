@@ -1,5 +1,6 @@
-# colors.js [![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
-
+# colors.js
+[![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
+[![coverage](https://img.shields.io/coveralls/MeriemKhelifi/colors.js.svg)](https://coveralls.io/github/MeriemKhelifi/colors.js)
 ## get color and style in your node.js console
 
 ![Demo](https://raw.githubusercontent.com/Marak/colors.js/master/screenshots/colors.png)
