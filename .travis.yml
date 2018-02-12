@@ -1,7 +1,5 @@
 language: node_js
 node_js:
-  - "latest"
-  - "stable"
   - "9"
   - "8"
   - "7"
