@@ -18,9 +18,6 @@
         "node": ">=0.1.90"
     },
     "main": "lib/index.js",
-    "dependencies": {
-        "has-flag": "^3.0.0"
-    },
     "files": [
         "examples",
         "lib",
