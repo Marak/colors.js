@@ -1,4 +1,8 @@
-# colors.js [![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
+# colors.js
+[![Build Status](https://travis-ci.org/Marak/colors.js.svg?branch=master)](https://travis-ci.org/Marak/colors.js)
+[![version](https://img.shields.io/npm/v/colors.svg)](https://www.npmjs.org/package/colors)
+[![dependencies](https://david-dm.org/Marak/colors.js.svg)](https://david-dm.org/Marak/colors.js)
+[![devDependencies](https://david-dm.org/Marak/colors.js/dev-status.svg)](https://david-dm.org/Marak/colors.js#info=devDependencies)
 
 ## get color and style in your node.js console
 
