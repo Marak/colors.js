@@ -60,7 +60,11 @@ console.log("this is an input".input);
 console.log('Generic logging theme as file'.green.bold.underline);
 
 // Load a theme from file
-colors.setTheme(__dirname + '/../themes/generic-logging.js');
+try {
+  colors.setTheme(require(__dirname + '/../themes/generic-logging.js'));
+} catch (err) {
+  console.log(err);
+}
 
 // outputs red text
 console.log("this is an error".error);
