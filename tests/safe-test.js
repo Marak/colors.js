@@ -16,7 +16,7 @@ function h(s, color) {
   return '<span style="color:' + color + ';">' + s + '</span>';
 }
 
-var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
+var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow', 'orange'];
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
 
 colors.mode = 'console';
@@ -37,6 +37,8 @@ aE(s, 'green', 32);
 aE(s, 'magenta', 35);
 aE(s, 'red', 31);
 aE(s, 'yellow', 33);
+aE(s, 'orange', '38;2;255;153;0');
+
 
 assert.equal(s, 'string');
 colors.setTheme({error:'red'});

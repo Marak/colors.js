@@ -26,6 +26,7 @@ Please open Issues to provide feedback, and check the `develop` branch for the l
   - white
   - gray
   - grey
+  - orange
 
 ### background colors
 
@@ -37,6 +38,7 @@ Please open Issues to provide feedback, and check the `develop` branch for the l
   - bgMagenta
   - bgCyan
   - bgWhite
+  - bgOrange
 
 ### styles
 
@@ -88,7 +90,7 @@ console.log(colors.trap('Run the trap')); // Drops the bass
 
 ```
 
-I prefer the first way. Some people seem to be afraid of extending `String.prototype` and prefer the second way. 
+I prefer the first way. Some people seem to be afraid of extending `String.prototype` and prefer the second way.
 
 If you are writing good code you will never have an issue with the first approach. If you really don't want to touch `String.prototype`, the second usage will not touch `String` native object.
 
