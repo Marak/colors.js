@@ -114,7 +114,8 @@ declare global {
         bgCyan: string;
         bgWhite: string;
 
-        reset: string;
+	reset: string;
+	// @ts-ignore
         bold: string;
         dim: string;
         italic: string;
