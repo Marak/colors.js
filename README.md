@@ -6,6 +6,10 @@
 
 Please check out the [roadmap](ROADMAP.md) for upcoming features and releases.  Please open Issues to provide feedback, and check the `develop` branch for the latest bleeding-edge updates.
 
+**Update on colors.js roadmap (2018-02-16):** The maintainers have published a pre-release version of `colors` that addresses a number of compatibility issues raised by community.  You may install the
+RC version by specifying `next` or `>=1.2.0-rc0` as the version for `colors` in your `package.json`.  We are eager to receive community feedback on this version in order to move it out of pre-release.
+Please open Issues to provide feedback, and check the `develop` branch for the latest bleeding-edge updates.  See also the [roadmap](ROADMAP.md).
+
 ## get color and style in your node.js console
 
 ![Demo](https://raw.githubusercontent.com/Marak/colors.js/master/screenshots/colors.png)
