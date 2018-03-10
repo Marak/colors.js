@@ -4,7 +4,7 @@
 [![dependencies](https://david-dm.org/Marak/colors.js.svg)](https://david-dm.org/Marak/colors.js)
 [![devDependencies](https://david-dm.org/Marak/colors.js/dev-status.svg)](https://david-dm.org/Marak/colors.js#info=devDependencies)
 
-Please check out the [roadmap.md] for upcoming features and releases.  Please open Issues to provide feedback, and check the `develop` branch for the latest bleeding-edge updates.
+Please check out the [roadmap](ROADMAP.md) for upcoming features and releases.  Please open Issues to provide feedback, and check the `develop` branch for the latest bleeding-edge updates.
 
 ## get color and style in your node.js console
 
