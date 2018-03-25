@@ -7,10 +7,10 @@ Here we describe upcoming releases and the key features/fixes they include.  Don
 ### 1.3.0 
  * Support custom colors
  
-### 1.2.1
+### 1.2.2
  * Refactor tests to use a testing library like jest (only affects dev/testing)
 
-### 1.2.0 (release date: about 3/5/18, barring any new issues)
+~~### 1.2.0 (release date: about 3/5/18, barring any new issues)
  * Built-in Typescript definitions
- * Key bug fixes for webpack/bundlers, webstorm, etc.
+ * Key bug fixes for webpack/bundlers, webstorm, etc.~~
  
