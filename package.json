@@ -1,7 +1,7 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console",
-    "version": "1.1.2",
+    "version": "1.2.1",
     "author": "Marak Squires",
     "homepage": "https://github.com/Marak/colors.js",
     "bugs": "https://github.com/Marak/colors.js/issues",
@@ -17,12 +17,14 @@
     "engines": {
         "node": ">=0.1.90"
     },
-    "main": "lib",
+    "main": "lib/index.js",
     "files": [
         "examples",
         "lib",
         "LICENSE",
         "safe.js",
-        "themes"
+        "themes",
+        "index.d.ts",
+        "safe.d.ts"
     ]
 }
