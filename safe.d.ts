@@ -6,6 +6,7 @@
 export const enabled: boolean;
 export function enable(): void;
 export function disable(): void;
+export function setTheme(theme: any): void;
 
 export function strip(str: string): string;
 export function stripColors(str: string): string;
