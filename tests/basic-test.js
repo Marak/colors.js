@@ -43,14 +43,12 @@ aE(s, 'yellow', 33);
 
 assert.equal(s, 'string');
 
-var testStringWithNewLines = s + `
-` + s;
+var testStringWithNewLines = s + '\n' + s;
 
 // single style
 assert.equal(testStringWithNewLines.red, '\x1b[31m' + s + '\n' + s + '\x1b[39m');
 
-var testStringWithNewLinesStyled = s.underline + `
-` + s.bold;
+var testStringWithNewLinesStyled = s.underline + '\n' + s.bold;
 
 // nested styles
 assert.equal(testStringWithNewLinesStyled.red, '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\n' + '\x1b[1m' + s + '\x1b[22m' + '\x1b[39m');
