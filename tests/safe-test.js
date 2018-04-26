@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    colors = require('../safe');
+  colors = require('../safe');
 
 var s = 'string';
 
@@ -39,7 +39,20 @@ aE(s, 'red', 31);
 aE(s, 'yellow', 33);
 
 assert.equal(s, 'string');
-colors.setTheme({error:'red'});
 
-assert.equal(typeof(colors.red("astring")), 'string');
-assert.equal(typeof(colors.error("astring")), 'string');
+var testStringWithNewLines = s + `
+` + s;
+
+// single style
+assert.equal(colors.red(testStringWithNewLines), '\x1b[31m' + s + '\x1b[39m' + '\n' + '\x1b[31m' + s + '\x1b[39m');
+
+var testStringWithNewLinesStyled = colors.underline(s) + `
+` + colors.bold(s);
+
+// nested styles
+assert.equal(colors.red(testStringWithNewLinesStyled), '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\x1b[39m' + '\n' + '\x1b[31m' + '\x1b[1m' + s + '\x1b[22m' + '\x1b[39m');
+
+colors.setTheme({ error: 'red' });
+
+assert.equal(typeof (colors.red("astring")), 'string');
+assert.equal(typeof (colors.error("astring")), 'string');
