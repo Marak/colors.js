@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  colors = require('../lib/index');
+    colors = require('../lib/index');
 
 var s = 'string';
 

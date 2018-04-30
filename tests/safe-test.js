@@ -1,5 +1,5 @@
 var assert = require('assert'),
-  colors = require('../safe');
+    colors = require('../safe');
 
 var s = 'string';
 
@@ -54,3 +54,4 @@ colors.setTheme({ error: 'red' });
 
 assert.equal(typeof (colors.red("astring")), 'string');
 assert.equal(typeof (colors.error("astring")), 'string');
+
