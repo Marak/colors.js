@@ -1,5 +1,5 @@
-var assert = require('assert'),
-    colors = require('../safe');
+var assert = require('assert');
+var colors = require('../safe');
 
 var s = 'string';
 
@@ -12,12 +12,11 @@ function aE(s, color, code) {
   assert.equal(colors.strip(s), s);
 }
 
-function h(s, color) {
-  return '<span style="color:' + color + ';">' + s + '</span>';
-}
-
-var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow'];
-var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse', 'rainbow']);
+var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta',
+  'red', 'yellow'];
+// eslint-disable-next-line
+var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse',
+  'rainbow']);
 
 colors.mode = 'console';
 assert.equal(colors.bold(s), '\x1B[1m' + s + '\x1B[22m');
@@ -43,15 +42,18 @@ assert.equal(s, 'string');
 var testStringWithNewLines = s + '\n' + s;
 
 // single style
-assert.equal(colors.red(testStringWithNewLines), '\x1b[31m' + s + '\x1b[39m' + '\n' + '\x1b[31m' + s + '\x1b[39m');
+assert.equal(colors.red(testStringWithNewLines),
+  '\x1b[31m' + s + '\x1b[39m' + '\n' + '\x1b[31m' + s + '\x1b[39m');
 
 var testStringWithNewLinesStyled = colors.underline(s) + '\n' + colors.bold(s);
 
 // nested styles
-assert.equal(colors.red(testStringWithNewLinesStyled), '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\x1b[39m' + '\n' + '\x1b[31m' + '\x1b[1m' + s + '\x1b[22m' + '\x1b[39m');
+assert.equal(colors.red(testStringWithNewLinesStyled),
+  '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\x1b[39m' + '\n' + '\x1b[31m' +
+  '\x1b[1m' + s + '\x1b[22m' + '\x1b[39m');
 
-colors.setTheme({ error: 'red' });
+colors.setTheme({error: 'red'});
 
-assert.equal(typeof (colors.red("astring")), 'string');
-assert.equal(typeof (colors.error("astring")), 'string');
+assert.equal(typeof (colors.red('astring')), 'string');
+assert.equal(typeof (colors.error('astring')), 'string');
 
