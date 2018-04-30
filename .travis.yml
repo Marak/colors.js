@@ -10,3 +10,7 @@ node_js:
   - "0.11"
   - "0.10"
   - "0.8"
+script:
+  - npm install
+  - "./node_modules/.bin/eslint . "
+  - npm test

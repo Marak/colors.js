@@ -1,0 +1,11 @@
+{
+    "extends": "google",
+    "rules": {
+      "no-var": "off",
+      "prefer-const": "off",
+      "eol-last": ["error", "always"],
+      "require-jsdoc": "off",
+      "guard-for-in": "off",
+      "prefer-rest-params": "off"
+    }
+}
