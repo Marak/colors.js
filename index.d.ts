@@ -46,6 +46,8 @@ export interface Color {
     zalgo: Color;
 }
 
+export function enable(): void;
+export function disable(): void;
 export function setTheme(theme: any): void;
 
 export let enabled: boolean;

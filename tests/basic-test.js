@@ -43,8 +43,19 @@ aE(s, 'yellow', 33);
 
 assert.equal(s, 'string');
 
-colors.setTheme({error:'red'});
+var testStringWithNewLines = s + '\n' + s;
 
-assert.equal(typeof("astring".red),'string');
-assert.equal(typeof("astring".error),'string');
+// single style
+assert.equal(testStringWithNewLines.red, '\x1b[31m' + s + '\n' + s + '\x1b[39m');
 
+var testStringWithNewLinesStyled = s.underline + '\n' + s.bold;
+
+// nested styles
+assert.equal(testStringWithNewLinesStyled.red, '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\n' + '\x1b[1m' + s + '\x1b[22m' + '\x1b[39m');
+
+colors.setTheme({ error: 'red' });
+
+assert.equal(typeof ("astring".red), 'string');
+assert.equal(typeof ("astring".error), 'string');
+
+assert.equal(s, 'string');
