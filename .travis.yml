@@ -14,5 +14,5 @@ node_js:
 script:
   - npm install
   - npm install if-node-version
-  - if-node-version ">=4" node "./node_modules/.bin/eslint . "
+  - if-node-version ">=4" "./node_modules/.bin/eslint . "
   - npm test
