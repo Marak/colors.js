@@ -13,6 +13,4 @@ node_js:
   - "0.8"
 script:
   - npm install
-  - npm install if-node-version
-  - if-node-version ">=4" "./node_modules/.bin/eslint . "
   - npm test
