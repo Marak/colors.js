@@ -27,6 +27,7 @@ console.log('This is ' + colors.strikethrough('not') + ' fun.');
 console.log(colors.black.bgWhite('Background color attack!'));
 console.log(colors.random('Use random styles on everything!'));
 console.log(colors.america('America, Heck Yeah!'));
+console.log(colors.croatia('HRVATSKA!'));
 
 console.log('Setting themes is useful');
 

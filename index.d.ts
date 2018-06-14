@@ -41,6 +41,7 @@ export interface Color {
     rainbow: Color;
     zebra: Color;
     america: Color;
+    croatia: Color;
     trap: Color;
     random: Color;
     zalgo: Color;
@@ -87,6 +88,7 @@ export const strikethrough: Color;
 export const rainbow: Color;
 export const zebra: Color;
 export const america: Color;
+export const croatia: Color;
 export const trap: Color;
 export const random: Color;
 export const zalgo: Color;
