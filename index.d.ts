@@ -41,6 +41,7 @@ export interface Color {
     rainbow: Color;
     zebra: Color;
     america: Color;
+    italy: Color;
     trap: Color;
     random: Color;
     zalgo: Color;
@@ -87,6 +88,7 @@ export const strikethrough: Color;
 export const rainbow: Color;
 export const zebra: Color;
 export const america: Color;
+export const italy: Color;
 export const trap: Color;
 export const random: Color;
 export const zalgo: Color;
@@ -129,6 +131,7 @@ declare global {
         rainbow: string;
         zebra: string;
         america: string;
+        italy: string;
         trap: string;
         random: string;
         zalgo: string;
