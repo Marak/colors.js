@@ -33,7 +33,7 @@
         "safe.d.ts"
     ],
     "devDependencies": {
-        "eslint": "^5.0.0",
+        "eslint": "^5.2.0",
         "eslint-config-google": "^0.9.1"
     }
 }
