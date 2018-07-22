@@ -37,7 +37,7 @@ console.log('Setting themes is useful');
 // Load theme with JSON literal
 colors.setTheme({
   silly: 'rainbow',
-  input: 'grey',
+  input: 'blue',
   verbose: 'cyan',
   prompt: 'grey',
   info: 'green',
@@ -54,14 +54,14 @@ console.log(colors.error('this is an error'));
 // outputs yellow text
 console.log(colors.warn('this is a warning'));
 
-// outputs grey text
+// outputs blue text
 console.log(colors.input('this is an input'));
 
 
 // console.log('Generic logging theme as file'.green.bold.underline);
 
 // Load a theme from file
-colors.setTheme(__dirname + '/../themes/generic-logging.js');
+colors.setTheme(require(__dirname + '/../themes/generic-logging.js'));
 
 // outputs red text
 console.log(colors.error('this is an error'));
