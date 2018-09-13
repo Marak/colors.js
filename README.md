@@ -102,6 +102,9 @@ To disable colors you can pass the following arguments in the command line to yo
 node myapp.js --no-color
 ```
 
+Alternatively, you can also define an environment variable named `FORCE_NO_COLOR`; if this variable is defined
+and has no value or has a value that doesn't evaluate to a 0, then colors will be disabled.
+
 ## Console.log [string substitution](http://nodejs.org/docs/latest/api/console.html#console_console_log_data)
 
 ```js
