@@ -94,7 +94,7 @@ I prefer the first way. Some people seem to be afraid of extending `String.proto
 
 If you are writing good code you will never have an issue with the first approach. If you really don't want to touch `String.prototype`, the second usage will not touch `String` native object.
 
-## Disabling Colors
+## Forcing Colors to be Enabled/Disabled
 
 To disable colors you can pass the following arguments in the command line to your application:
 
@@ -102,8 +102,7 @@ To disable colors you can pass the following arguments in the command line to yo
 node myapp.js --no-color
 ```
 
-Alternatively, you can also define an environment variable named `FORCE_NO_COLOR`; if this variable is defined
-and has no value or has a value that doesn't evaluate to a 0, then colors will be disabled.
+Alternatively, you can define an environment variable named `FORCE_COLOR` to force colors to be enabled (e.g. in a complex environment where colors support is not detected properly), or `FORCE_NO_COLOR` to force colors to be disabled; the environment variables will take effect if any non-zero value is specified.
 
 ## Console.log [string substitution](http://nodejs.org/docs/latest/api/console.html#console_console_log_data)
 
