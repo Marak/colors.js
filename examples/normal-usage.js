@@ -28,6 +28,7 @@ console.log('This is ' + 'not'.strikethrough + ' fun.');
 console.log('Background color attack!'.black.bgWhite);
 console.log('Use random styles on everything!'.random);
 console.log('America, Heck Yeah!'.america);
+console.log('Parlez-vous français?'.france);
 
 
 console.log('Setting themes is useful');
