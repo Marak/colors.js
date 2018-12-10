@@ -7,8 +7,13 @@ Here we describe upcoming and recent releases and the key features/fixes they in
 ### 1.4.0 
  * Support custom colors
 
-### 1.3.2
+### 1.3.4
  * Refactor tests to use a testing library like jest (only affects dev/testing)
+
+### ~~1.3.3 (12/9/18)~~
+
+ * ~~Remove extraneous swap files~~
+ * ~~Fix subtle bug in custom theme properties mixing themes and styles~~
 
 ### ~~1.3.1 (7/22/18)~~
 

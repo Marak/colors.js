@@ -52,7 +52,7 @@ var testStringWithNewLinesStyled = s.underline + '\n' + s.bold;
 
 // nested styles
 assert.equal(testStringWithNewLinesStyled.red,
-  '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\n' + '\x1b[1m' + s +
+    '\x1b[31m' + '\x1b[4m' + s + '\x1b[24m' + '\n' + '\x1b[1m' + s +
   '\x1b[22m' + '\x1b[39m');
 
 colors.setTheme({error: 'red'});
@@ -64,10 +64,10 @@ assert.equal(s, 'string');
 
 colors.setTheme({custom: ['blue', 'bold', 'underline']});
 assert.equal(colors.custom(s),
-  '\x1b[4m' + '\x1b[1m' + '\x1b[34m' + s +
+    '\x1b[4m' + '\x1b[1m' + '\x1b[34m' + s +
   '\x1b[39m' + '\x1b[22m' + '\x1b[24m' );
 
 colors.setTheme({custom: ['red', 'italic', 'inverse']});
 assert.equal(colors.custom(s),
-  '\x1b[7m' + '\x1b[3m' + '\x1b[31m' + s +
+    '\x1b[7m' + '\x1b[3m' + '\x1b[31m' + s +
   '\x1b[39m' + '\x1b[23m' + '\x1b[27m' );

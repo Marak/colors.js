@@ -1,13 +1,14 @@
 {
     "name": "colors",
     "description": "get colors in your node.js console",
-    "version": "1.3.1",
+    "version": "1.3.3",
     "author": "Marak Squires",
     "contributors": [
-    {
-        "name": "DABH",
-        "url": "https://github.com/DABH"
-    }],
+        {
+            "name": "DABH",
+            "url": "https://github.com/DABH"
+        }
+    ],
     "homepage": "https://github.com/Marak/colors.js",
     "bugs": "https://github.com/Marak/colors.js/issues",
     "keywords": [
@@ -39,6 +40,6 @@
     ],
     "devDependencies": {
         "eslint": "^5.2.0",
-        "eslint-config-google": "^0.9.1"
+        "eslint-config-google": "^0.11.0"
     }
 }
