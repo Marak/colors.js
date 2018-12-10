@@ -2,3 +2,4 @@
 /tests/
 /.travis.yml
 /screenshots
+*.sw*
