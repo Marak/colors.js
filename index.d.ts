@@ -49,6 +49,8 @@ export interface Color {
 export function enable(): void;
 export function disable(): void;
 export function setTheme(theme: any): void;
+export function error(message: string): string;
+export function warn(message: string): string;
 
 export let enabled: boolean;
 
