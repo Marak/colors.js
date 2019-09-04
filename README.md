@@ -28,6 +28,14 @@ Please check out the [roadmap](ROADMAP.md) for upcoming features and releases.  
   - white
   - gray
   - grey
+  - brightBlack
+  - brightRed
+  - brightGreen
+  - brightYellow
+  - brightBlue
+  - brightMagenta
+  - brightCyan
+  - brightWhite
 
 ### background colors
 
