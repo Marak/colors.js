@@ -16,7 +16,10 @@ function aE(s, color, code) {
 }
 
 var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta',
-  'red', 'yellow'];
+                    'red', 'yellow', 'brightYellow', 'brightRed',
+                    'brightGreen', 'brightBlue', 'brightWhite', 'brightCyan',
+                    'brightMagenta'];
+
 // eslint-disable-next-line
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline',
   'inverse', 'rainbow']);
@@ -45,6 +48,14 @@ aE(s, 'green', 32);
 aE(s, 'magenta', 35);
 aE(s, 'red', 31);
 aE(s, 'yellow', 33);
+
+aE(s, 'brightWhite', 97);
+aE(s, 'brightBlue', 94);
+aE(s, 'brightCyan', 96);
+aE(s, 'brightGreen', 92);
+aE(s, 'brightMagenta', 95);
+aE(s, 'brightRed', 91);
+aE(s, 'brightYellow', 93);
 
 assert.equal(s, 'string');
 

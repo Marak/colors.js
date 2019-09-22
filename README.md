@@ -29,6 +29,16 @@ Please check out the [roadmap](ROADMAP.md) for upcoming features and releases.  
   - gray
   - grey
 
+### bright text colors
+
+  - brightRed
+  - brightGreen
+  - brightYellow
+  - brightBlue
+  - brightMagenta
+  - brightCyan
+  - brightWhite
+
 ### background colors
 
   - bgBlack
@@ -39,6 +49,18 @@ Please check out the [roadmap](ROADMAP.md) for upcoming features and releases.  
   - bgMagenta
   - bgCyan
   - bgWhite
+  - bgGray
+  - bgGrey
+
+### bright background colors
+
+  - bgBrightRed
+  - bgBrightGreen
+  - bgBrightYellow
+  - bgBrightBlue
+  - bgBrightMagenta
+  - bgBrightCyan
+  - bgBrightWhite
 
 ### styles
 
