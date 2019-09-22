@@ -66,3 +66,10 @@ colors.setTheme({custom: ['red', 'italic', 'inverse']});
 assert.equal(colors.custom(s),
     '\x1b[7m' + '\x1b[3m' + '\x1b[31m' + s +
   '\x1b[39m' + '\x1b[23m' + '\x1b[27m' );
+
+// should not throw error on null or undefined values
+var undef;
+assert.equal(colors.yellow(undef), '\x1b[33mundefined\x1b[39m');
+
+// was failing:
+assert.equal(colors.red(null), '\x1b[31mnull\x1b[39m');
