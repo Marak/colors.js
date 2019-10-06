@@ -20,6 +20,22 @@ export interface Color {
     gray: Color;
     grey: Color;
 
+    brightRed: Color;
+    brightGreen: Color;
+    brightYellow: Color;
+    brightBlue: Color;
+    brightMagenta: Color;
+    brightCyan: Color;
+    brightWhite: Color;
+
+    bgBrightRed: Color;
+    bgBrightGreen: Color;
+    bgBrightYellow: Color;
+    bgBrightBlue: Color;
+    bgBrightMagenta: Color;
+    bgBrightCyan: Color;
+    bgBrightWhite: Color;
+
     bgBlack: Color;
     bgRed: Color;
     bgGreen: Color;
@@ -66,6 +82,22 @@ export const white: Color;
 export const gray: Color;
 export const grey: Color;
 
+export const brightRed: Color;
+export const brightGreen: Color;
+export const brightYellow: Color;
+export const brightBlue: Color;
+export const brightMagenta: Color;
+export const brightCyan: Color;
+export const brightWhite: Color;
+
+export const bgBrightRed: Color;
+export const bgBrightGreen: Color;
+export const bgBrightYellow: Color;
+export const bgBrightBlue: Color;
+export const bgBrightMagenta: Color;
+export const bgBrightCyan: Color;
+export const bgBrightWhite: Color;
+
 export const bgBlack: Color;
 export const bgRed: Color;
 export const bgGreen: Color;
@@ -106,6 +138,22 @@ declare global {
         white: string;
         gray: string;
         grey: string;
+        
+        brightRed: Color;
+        brightGreen: Color;
+        brightYellow: Color;
+        brightBlue: Color;
+        brightMagenta: Color;
+        brightCyan: Color;
+        brightWhite: Color;
+
+        bgBrightRed: Color;
+        bgBrightGreen: Color;
+        bgBrightYellow: Color;
+        bgBrightBlue: Color;
+        bgBrightMagenta: Color;
+        bgBrightCyan: Color;
+        bgBrightWhite: Color;
 
         bgBlack: string;
         bgRed: string;
