@@ -1,6 +1,6 @@
-// Type definitions for Colors.js 1.2
+// Type definitions for Colors.js 1.4
 // Project: https://github.com/Marak/colors.js
-// Definitions by: Bart van der Schoor <https://github.com/Bartvds>, Staffan Eketorp <https://github.com/staeke>
+// Definitions by: Bart van der Schoor <https://github.com/Bartvds>, Staffan Eketorp <https://github.com/staeke>, Max Sirenev <https://github.com/tggdesu>
 // Definitions: https://github.com/Marak/colors.js
 
 export const enabled: boolean;
@@ -21,6 +21,22 @@ export function cyan(str: string): string;
 export function white(str: string): string;
 export function gray(str: string): string;
 export function grey(str: string): string;
+
+export function brightRed(str: string): string;
+export function brightGreen(str: string): string;
+export function brightYellow(str: string): string;
+export function brightBlue(str: string): string;
+export function brightMagenta(str: string): string;
+export function brightCyan(str: string): string;
+export function brightWhite(str: string): string;
+
+export function bgBrightRed(str: string): string;
+export function bgBrightGreen(str: string): string;
+export function bgBrightYellow(str: string): string;
+export function bgBrightBlue(str: string): string;
+export function bgBrightMagenta(str: string): string;
+export function bgBrightCyan(str: string): string;
+export function bgBrightWhite(str: string): string;
 
 export function bgBlack(str: string): string;
 export function bgRed(str: string): string;
