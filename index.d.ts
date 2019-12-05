@@ -20,6 +20,14 @@ export interface Color {
     gray: Color;
     grey: Color;
 
+    brightRed: Color;
+    brightGreen: Color;
+    brightYellow: Color;
+    brightBlue: Color;
+    brightMagenta: Color;
+    brightCyan: Color;
+    brightWhite: Color;
+
     bgBlack: Color;
     bgRed: Color;
     bgGreen: Color;
@@ -28,6 +36,14 @@ export interface Color {
     bgMagenta: Color;
     bgCyan: Color;
     bgWhite: Color;
+
+    bgBrightRed: Color;
+    bgBrightGreen: Color;
+    bgBrightYellow: Color;
+    bgBrightBlue: Color;
+    bgBrightMagenta: Color;
+    bgBrightCyan: Color;
+    bgBrightWhite: Color;
 
     reset: Color;
     bold: Color;
@@ -66,6 +82,14 @@ export const white: Color;
 export const gray: Color;
 export const grey: Color;
 
+export const brightRed: Color;
+export const brightGreen: Color;
+export const brightYellow: Color;
+export const brightBlue: Color;
+export const brightMagenta: Color;
+export const brightCyan: Color;
+export const brightWhite: Color;
+
 export const bgBlack: Color;
 export const bgRed: Color;
 export const bgGreen: Color;
@@ -74,6 +98,14 @@ export const bgBlue: Color;
 export const bgMagenta: Color;
 export const bgCyan: Color;
 export const bgWhite: Color;
+
+export const bgBrightRed: Color;
+export const bgBrightGreen: Color;
+export const bgBrightYellow: Color;
+export const bgBrightBlue: Color;
+export const bgBrightMagenta: Color;
+export const bgBrightCyan: Color;
+export const bgBrightWhite: Color;
 
 export const reset: Color;
 export const bold: Color;
@@ -107,6 +139,14 @@ declare global {
         gray: string;
         grey: string;
 
+        brightRed: string;
+        brightGreen: string;
+        brightYellow: string;
+        brightBlue: string;
+        brightMagenta: string;
+        brightCyan: string;
+        brightWhite: string;
+
         bgBlack: string;
         bgRed: string;
         bgGreen: string;
@@ -115,6 +155,14 @@ declare global {
         bgMagenta: string;
         bgCyan: string;
         bgWhite: string;
+
+        bgBrightRed: string;
+        bgBrightGreen: string;
+        bgBrightYellow: string;
+        bgBrightBlue: string;
+        bgBrightMagenta: string;
+        bgBrightCyan: string;
+        bgBrightWhite: string;
 
         reset: string;
         // @ts-ignore
