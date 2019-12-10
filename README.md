@@ -3,6 +3,7 @@
 [![version](https://img.shields.io/npm/v/colors.svg)](https://www.npmjs.org/package/colors)
 [![dependencies](https://david-dm.org/Marak/colors.js.svg)](https://david-dm.org/Marak/colors.js)
 [![devDependencies](https://david-dm.org/Marak/colors.js/dev-status.svg)](https://david-dm.org/Marak/colors.js#info=devDependencies)
+[![run on repl.it](http://repl.it/badge/github/Marak/colors.js)](https://repl.it/github/Marak/colors.js)
 
 Please check out the [roadmap](ROADMAP.md) for upcoming features and releases.  Please open Issues to provide feedback, and check the `develop` branch for the latest bleeding-edge updates.
 
