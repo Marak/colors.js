@@ -177,6 +177,8 @@ console.log("this is a warning".warn);
 
 ### Using string safe API
 
+Requiring 'colors/safe' will use the "safe" colors API, which will not touch String.prototype.
+
 ```js
 var colors = require('colors/safe');
 
