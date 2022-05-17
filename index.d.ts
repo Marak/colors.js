@@ -19,6 +19,14 @@ export interface Color {
     white: Color;
     gray: Color;
     grey: Color;
+    
+    brightRed: Color;
+    brightGreen: Color;
+    brightYellow: Color;
+    brightBlue: Color;
+    brightMagenta: Color;
+    brightCyan: Color;
+    brightWhite: Color;
 
     bgBlack: Color;
     bgRed: Color;
@@ -28,6 +36,16 @@ export interface Color {
     bgMagenta: Color;
     bgCyan: Color;
     bgWhite: Color;
+    bgGray: Color;
+    bgGrey: Color;
+
+    bgBrightRed: Color,
+    bgBrightGreen: Color,
+    bgBrightYellow: Color,
+    bgBrightBlue: Color,
+    bgBrightMagenta: Color,
+    bgBrightCyan: Color,
+    bgBrightWhite: Color,
 
     reset: Color;
     bold: Color;
@@ -107,6 +125,14 @@ declare global {
         gray: string;
         grey: string;
 
+        brightRed: string;
+        brightGreen: string;
+        brightYellow: string;
+        brightBlue: string;
+        brightMagenta: string;
+        brightCyan: string;
+        brightWhite: string;
+
         bgBlack: string;
         bgRed: string;
         bgGreen: string;
@@ -115,6 +141,16 @@ declare global {
         bgMagenta: string;
         bgCyan: string;
         bgWhite: string;
+        bgGray: string;
+        bgGrey: string;
+
+        bgBrightRed: string,
+        bgBrightGreen: string,
+        bgBrightYellow: string,
+        bgBrightBlue: string,
+        bgBrightMagenta: string,
+        bgBrightCyan: string,
+        bgBrightWhite: string,
 
         reset: string;
         // @ts-ignore
