@@ -28,6 +28,8 @@ export interface Color {
     bgMagenta: Color;
     bgCyan: Color;
     bgWhite: Color;
+    bgGray: Color;
+    bgGrey: Color;
 
     reset: Color;
     bold: Color;
@@ -44,6 +46,22 @@ export interface Color {
     trap: Color;
     random: Color;
     zalgo: Color;
+
+    bgBrightRed: Color;
+    bgBrightGreen: Color;
+    bgBrightYellow: Color;
+    bgBrightBlue: Color;
+    bgBrightMagenta: Color;
+    bgBrightCyan: Color;
+    bgBrightWhite: Color;
+
+    brightRed: Color;
+    brightGreen: Color;
+    brightYellow: Color;
+    brightBlue: Color;
+    brightMagenta: Color;
+    brightCyan: Color;
+    brightWhite: Color;
 }
 
 export function enable(): void;
@@ -74,6 +92,8 @@ export const bgBlue: Color;
 export const bgMagenta: Color;
 export const bgCyan: Color;
 export const bgWhite: Color;
+export const bgGray: Color;
+export const bgGrey: Color;
 
 export const reset: Color;
 export const bold: Color;
@@ -90,6 +110,22 @@ export const america: Color;
 export const trap: Color;
 export const random: Color;
 export const zalgo: Color;
+
+export const bgBrightRed: Color;
+export const bgBrightGreen: Color;
+export const bgBrightYellow: Color;
+export const bgBrightBlue: Color;
+export const bgBrightMagenta: Color;
+export const bgBrightCyan: Color;
+export const bgBrightWhite: Color;
+
+export const brightRed: Color;
+export const brightGreen: Color;
+export const brightYellow: Color;
+export const brightBlue: Color;
+export const brightMagenta: Color;
+export const brightCyan: Color;
+export const brightWhite: Color;
 
 declare global {
     interface String {
@@ -115,6 +151,8 @@ declare global {
         bgMagenta: string;
         bgCyan: string;
         bgWhite: string;
+        bgGray: string;
+        bgGrey: string;
 
         reset: string;
         // @ts-ignore
@@ -132,5 +170,21 @@ declare global {
         trap: string;
         random: string;
         zalgo: string;
+
+        bgBrightRed: string;
+        bgBrightGreen: string;
+        bgBrightYellow: string;
+        bgBrightBlue: string;
+        bgBrightMagenta: string;
+        bgBrightCyan: string;
+        bgBrightWhite: string;
+
+        brightRed: string;
+        brightGreen: string;
+        brightYellow: string;
+        brightBlue: string;
+        brightMagenta: string;
+        brightCyan: string;
+        brightWhite: string;
     }
 }
