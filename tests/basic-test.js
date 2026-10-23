@@ -16,9 +16,9 @@ function aE(s, color, code) {
 }
 
 var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta',
-                    'red', 'yellow', 'brightYellow', 'brightRed',
-                    'brightGreen', 'brightBlue', 'brightWhite', 'brightCyan',
-                    'brightMagenta'];
+  'red', 'yellow', 'brightYellow', 'brightRed',
+  'brightGreen', 'brightBlue', 'brightWhite', 'brightCyan',
+  'brightMagenta'];
 
 // eslint-disable-next-line
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline',
@@ -33,11 +33,11 @@ assert.equal(s.inverse, '\x1B[7m' + s + '\x1B[27m');
 
 assert.ok(s.rainbow);
 
-assert.equal(colors.stylize("foo", "rainbow"), '\u001b[31mf\u001b[39m\u001b[33mo\u001b[39m\u001b[32mo\u001b[39m');
-assert.ok(colors.stylize(s, "america"));
-assert.ok(colors.stylize(s, "zebra"));
-assert.ok(colors.stylize(s, "trap"));
-assert.ok(colors.stylize(s, "random"));
+assert.equal(colors.stylize('foo', 'rainbow'), '\u001b[31mf\u001b[39m\u001b[33mo\u001b[39m\u001b[32mo\u001b[39m');
+assert.ok(colors.stylize(s, 'america'));
+assert.ok(colors.stylize(s, 'zebra'));
+assert.ok(colors.stylize(s, 'trap'));
+assert.ok(colors.stylize(s, 'random'));
 
 aE(s, 'white', 37);
 aE(s, 'grey', 90);

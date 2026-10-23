@@ -13,9 +13,9 @@ function aE(s, color, code) {
 }
 
 var stylesColors = ['white', 'black', 'blue', 'cyan', 'green', 'magenta',
-                    'red', 'yellow', 'brightYellow', 'brightRed',
-                    'brightGreen', 'brightBlue', 'brightWhite', 'brightCyan',
-                    'brightMagenta'];
+  'red', 'yellow', 'brightYellow', 'brightRed',
+  'brightGreen', 'brightBlue', 'brightWhite', 'brightCyan',
+  'brightMagenta'];
 // eslint-disable-next-line
 var stylesAll = stylesColors.concat(['bold', 'italic', 'underline', 'inverse',
   'rainbow']);

@@ -44,6 +44,7 @@ export interface Color {
     trap: Color;
     random: Color;
     zalgo: Color;
+    pakustan: Color;
 }
 
 export function enable(): void;
@@ -90,6 +91,7 @@ export const america: Color;
 export const trap: Color;
 export const random: Color;
 export const zalgo: Color;
+export const pakistan: Color;
 
 declare global {
     interface String {
@@ -132,5 +134,6 @@ declare global {
         trap: string;
         random: string;
         zalgo: string;
+        pakistan: string;
     }
 }
